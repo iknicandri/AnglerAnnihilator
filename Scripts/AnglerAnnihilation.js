@@ -1,5 +1,5 @@
 anglerAnnihilator = {
-    container: document.getElementById("sim_container"),
+    container: document.getElementById("animation_container"),
     
     init: function() {
         //I made an edit - Isabelle//

@@ -9,7 +9,7 @@ body {
     color: #333; 
 }
 
-#angler_sim {
+#angler_animation {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +21,7 @@ body {
     margin: auto;
 }
 
-#sim_container {
+#animation_container {
     width: 855px;
     height: 395px;
     border: 1px solid #eee;
