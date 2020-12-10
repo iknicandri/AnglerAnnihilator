@@ -22,8 +22,8 @@ body {
 }
 
 #animation_container {
-    width: 795px;
-    height: 395px;
+    width: 1000px;
+    height: 500px;
     border: 1px solid #eee;
     border-radius: 10px;
     position: relative;
