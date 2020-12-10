@@ -1,4 +1,2 @@
 # AnglerAnnihilator
-User moves the net up and down to catch fish.
-this is an amazing app
-Great application
+In our game, the Angler Annihilator, the user controls a fishing net with the arrow keys on a keyboard to catch swimming fish. Each fish has a different point value, and the user tries to get as many points before the 3 minute timer runs out. Along with there being fish that help you gain points, there are also fish that take away points. To end the game you have to do one of two things, catch a fish hook (which is deadly) or stay alive until the timer runs out. The user will have to dodge these obstacles to get the highest score possible. The longer the player plays without the game ending, the faster the fish will get.
