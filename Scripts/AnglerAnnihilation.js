@@ -1,4 +1,4 @@
-anglerAnnihilator = {
+let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
     
     init: function() {
