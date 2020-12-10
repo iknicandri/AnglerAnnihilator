@@ -1,0 +1,30 @@
+html { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: sans-serif;
+    background-image: url("https://trello-attachments.s3.amazonaws.com/5fc6858981168a3ed27bc901/5fc7cd9b5011e02d0e0b244e/6791c0cc30ebaa207904af44c6fe025a/underwater-water-bubble-sea.jpg");
+}
+
+#angler_animation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1350px;
+    height: 600px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-image: url("https://trello-attachments.s3.amazonaws.com/5fc6858981168a3ed27bc901/5fc7cd9b5011e02d0e0b244e/4d9f2ea80bd1c99efafce3a6d61f70ff/d40506d2c691b53284269f7c2cf44151.png");
+    margin: auto;
+}
+
+#animation_container {
+    width: 1345px;
+    height: 595px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
+}

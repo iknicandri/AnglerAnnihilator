@@ -1,4 +1,5 @@
-anglerAnnihilator = {
+let anglerAnnihilator = {
+    container: document.getElementById("animation_container"),
     fish: [],
     init: function () {
 
@@ -67,7 +68,9 @@ anglerAnnihilator = {
     },
     swimFish: function () {
         for (let i = 0; i < this.fish.length; i++) {
-            if (this.fish[i].canSwim )
+            if (this.fish[i].canSwim ) {
+                
+            }
 }
     }
 }
