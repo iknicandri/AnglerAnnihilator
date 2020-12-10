@@ -1,0 +1,19 @@
+html { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: sans-serif;
+    background-color: dimgray;
+    color: #333; 
+}
+
+#sim_container {
+    width: 855px;
+    height: 395px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
+}
