@@ -2,7 +2,16 @@ let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
     fish: [],
     init: function () {
-        let fishes = document.getElementById("animation_container")
+        
+        //fishes.src = fish[randomNum()];
+
+        this.renderFish();
+        this.startGame();
+
+    },
+    createFish: function () {
+        let fishes = document.createElement("div")
+        fishes.className = "fish" 
         let fishArray = [
             {name: 'greyFish', image: "https://images.twinkl.co.uk/tr/image/upload/illustation/Swimming-Fish---Animated-Tail---Y2-Gymnastics-Under-the-Sea-Lesson-1---Balancing-Lesson-Pack-English---KS1.png"},
             {name: 'yellowFish', image: "https://grid.gograph.com/tropical-cartoon-fish-eps-illustration_gg61604880.jpg"},
@@ -16,18 +25,12 @@ let anglerAnnihilator = {
         ]
 
         for (let i = 0; i < this.fish.length; i += 1) {
+            var fishImage = this.fish[i]
             var pez = getRandomItem(fishArray)
             this.fishArray[i].push(this.fish)
-            fish[i].innerHTML = pez.name + '<img src="' + pez.image + '
+            fish[i].innerHTML = pez.name + '<img src="' + pez.image + ' > '
+            document.getElementById('animation_container').appendChild(fishImage);
         }
-        //fishes.src = fish[randomNum()];
-
-        this.renderFish();
-        this.startGame();
-
-    },
-    createFish: function () {
-
     },
 
     startGame: function () {
