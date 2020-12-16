@@ -2,106 +2,32 @@ let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
     fish: [],
     init: function () {
+        let fishes = document.getElementById("animation_container")
+        let fishArray = [
+            {name: 'greyFish', image: "https://images.twinkl.co.uk/tr/image/upload/illustation/Swimming-Fish---Animated-Tail---Y2-Gymnastics-Under-the-Sea-Lesson-1---Balancing-Lesson-Pack-English---KS1.png"},
+            {name: 'yellowFish', image: "https://grid.gograph.com/tropical-cartoon-fish-eps-illustration_gg61604880.jpg"},
+            {name: 'orangeFish', image:"https://thumbs.dreamstime.com/b/pygoplites-diacanthus-aquarium-tropical-fish-144745023.jpg"},
+            {name: 'blueFish', image:"https://webstockreview.net/images/clipart-fish-teal-3.png"},
+            {name: 'greenFish', image:"https://thumbs.dreamstime.com/b/zanclus-cornutus-aquarium-tropical-fish-144745146.jpg"},
+            {name: 'redFish', image:"https://www.carlswebgraphics.com/fish-images/2020-red-fish-clipart.jpg"},
+            {name: 'purpleFish', image:"https://img.favpng.com/2/6/13/image-fish-portable-network-graphics-download-png-favpng-ebhYVWTEHGsTG2iafehsBLJP8.jpg"},
+            {name: 'magicFish', image:"https://webstockreview.net/images/clipart-borders-fish-8.png"},
+            {name: 'brownFish', image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRSggT2-afkjHeOQ0lVVWCCtlhtA8m-KQebg&usqp=CAU"}
+        ]
 
-        for (let i = 0; i < 34; i++) {
-            this.fish.push(this.createGreyFish())
+        for (let i = 0; i < this.fish.length; i += 1) {
+            var pez = getRandomItem(fishArray)
+            this.fishArray[i].push(this.fish)
+            fish[i].innerHTML = pez.name + '<img src="' + pez.image + '
         }
-        for (let i = 0; i < 33; i++) {
-            this.fish.push(this.createYellowFish())
-        }
-        for (let i = 0; i < 31; i++) {
-            this.fish.push(this.createOrangeFish())
-        }
-        for (let i = 0; i < 30; i++) {
-            this.fish.push(this.createBlueFish())
-        }
-        for (let i = 0; i < 32; i++) {
-            this.fish.push(this.createGreenFish())
-        }
-        for (let i = 0; i < 28; i++) {
-            this.fish.push(this.createRedFish())
-        }
-        for (let i = 0; i < 27; i++) {
-            this.fish.push(this.createPurpleFish())
-        }
-        for (let i = 0; i < 10; i++) {
-            this.fish.push(this.createMagicFish())
-        }
-        for (let i = 0; i < 35; i++) {
-            this.fish.push(this.createBrownFish())
-        }
-this.renderFish();
-this.startGame();
+        //fishes.src = fish[randomNum()];
+
+        this.renderFish();
+        this.startGame();
 
     },
-    createFish: function() {
+    createFish: function () {
 
-    },
-    createGreyFish: function () {
-        let grey = {
-            canSwim: false,
-            timer: 0,
-
-            
-        }
-        return grey
-    },
-    createYellowFish: function () {
-        let yellow = {
-            canSwim: false,
-            timer: 0,
-        }
-        return yellow
-    },
-    createOrangeFish: function () {
-        let orange = {
-            canSwim: false,
-            timer: 0,
-
-        }
-        return orange
-    },
-    createBlueFish: function () {
-        let blue = {
-            canSwim: false,
-            timer: 0,
-        }
-        return blue
-    },
-    createGreenFish: function () {
-        let green = {
-            canSwim: false,
-            timer: 0,
-        }
-        return green
-    },
-    createRedFish: function () {
-        let red = {
-            canSwim: false,
-            timer: 0,
-        }
-        return red
-    },
-    createPurpleFish: function () {
-        let purple = {
-            canSwim: false,
-            timer: 0,
-        }
-        return purple
-    },
-    createMagicFish: function () {
-        let Magic = {
-            canSwim: false,
-            timer: 0,
-        }
-        return Magic
-    },
-    createBrownFish: function () {
-        let brown = {
-            canSwim: false,
-            timer: 0,
-        }
-        return brown
     },
 
     startGame: function () {
@@ -110,6 +36,7 @@ this.startGame();
     endGame: function () {
 
     },
+
     swimFish: function () {
         for (let i = 0; i < this.fish.length; i++) {
             if (this.fish[i].canSwim == true) {
@@ -118,8 +45,18 @@ this.startGame();
         }
     },
     renderFish: function () {
+        for (let i = 0; i < this.fish.length; i++) {
+            this.fish[i].element.style.top = this.fish[i].y_pos + "px"
+            this.fish[i].element.style.left = this.fish[i].x_pos + "px"
+        }
+    },
+    //randomNum: function () {
+    //    random = Math.random() * 8;
+    //   return Math.round(random)
+    
+    //}
 
-    }
+
 }
 
 MyApp.init();
