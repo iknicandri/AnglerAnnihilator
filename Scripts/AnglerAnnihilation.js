@@ -1,5 +1,6 @@
 let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
+<<<<<<< HEAD
     fish: [],
     init: function () {
         
@@ -8,6 +9,33 @@ let anglerAnnihilator = {
         this.renderFish();
         this.startGame();
 
+=======
+    fishes: [],
+    fishTypeImages: [],
+
+    init: function () {
+
+        for (let i = 0; i < 10; i++) {
+            this.fishes.push(this.createFish());
+          }
+
+      this.renderFish();
+      this.startGame();
+    },
+    createFish: function () {
+    let fishdiv = document.createElement("div")
+    fishdiv.className = "fish"
+    this.container.append(fishdiv)
+    let fish = {
+        x_pos: Math.random() * 580,
+        y_pos: Math.random() * 580,
+        x_velocity: Math.random() * 1,
+        y_velocity: Math.random() * .5,
+        radius: 5,
+        element: fishdiv,
+    }
+    return fish;
+>>>>>>> 96c8de1b52a2ce46d9dfcf11c0f4dcc171236d58
     },
     //createFish: function () {
     //    let fishes = document.createElement("div")
@@ -41,27 +69,20 @@ let anglerAnnihilator = {
     },
 
     swimFish: function () {
-        for (let i = 0; i < this.fish.length; i++) {
-            if (this.fish[i].canSwim == true) {
+        for (let i = 0; i < this.fishes.length; i++) {
+            if (this.fishes[i].canSwim == true) {
 
             }
         }
     },
     renderFish: function () {
-        for (let i = 0; i < this.fish.length; i++) {
-            this.fish[i].element.style.top = this.fish[i].y_pos + "px"
-            this.fish[i].element.style.left = this.fish[i].x_pos + "px"
+        for (let i = 0; i < this.fishes.length; i++) {
+            console.log("renderingFish")
+            this.fishes[i].element.style.top = this.fishes[i].y_pos + "px"
+            this.fishes[i].element.style.left = this.fishes[i].x_pos + "px"
         }
     },
-    startAnimation: function () {
-        var frames = document.getElementById("animation").children;
-        var frameCount = frames.length;
-        var i = 0;
-        setInterval(function () { 
-            frames[i % frameCount].style.display = "none";
-            frames[++i % frameCount].style.display = "block";
-        }, 100);
-    }
+    
 
     //randomNum: function () {
     //    random = Math.random() * 8;
@@ -71,5 +92,4 @@ let anglerAnnihilator = {
 
 
 }
-
-MyApp.init();
+anglerAnnihilator.init();

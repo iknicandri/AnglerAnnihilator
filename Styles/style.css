@@ -5,7 +5,6 @@ html {
 
 body { 
     font-family: sans-serif;
-    background-image: url("https://trello-attachments.s3.amazonaws.com/5fc6858981168a3ed27bc901/5fc7cd9b5011e02d0e0b244e/6791c0cc30ebaa207904af44c6fe025a/underwater-water-bubble-sea.jpg");
 }
 
 #angler_animation {
@@ -16,6 +15,7 @@ body {
     height: 600px;
     border: 1px solid #eee;
     border-radius: 10px;
+    background-image: url("../Images/d40506d2c691b53284269f7c2cf44151.png");
     margin: auto;
 }
 
@@ -28,9 +28,11 @@ body {
     margin: auto;
 }
 
-#animation img {
-    display: none;
-}
-#animation img:first-child {
-    display: block;
+.fish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
 }
