@@ -1,15 +1,5 @@
 let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
-<<<<<<< HEAD
-    fish: [],
-    init: function () {
-        
-        //fishes.src = fish[randomNum()];
-
-        this.renderFish();
-        this.startGame();
-
-=======
     fishes: [],
     fishTypeImages: [],
 
@@ -35,7 +25,6 @@ let anglerAnnihilator = {
         element: fishdiv,
     }
     return fish;
->>>>>>> 96c8de1b52a2ce46d9dfcf11c0f4dcc171236d58
     },
     //createFish: function () {
     //    let fishes = document.createElement("div")
