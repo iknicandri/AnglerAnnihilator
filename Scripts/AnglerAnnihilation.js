@@ -50,6 +50,10 @@ let anglerAnnihilator = {
     //     }
     // },
 
+    fishtype: function () {
+    
+    },
+
     startGame: function () {
 
     },
