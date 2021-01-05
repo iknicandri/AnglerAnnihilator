@@ -1,14 +1,14 @@
 let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
     fishes: [],
-    fishTypeImages: [],
+    //fishTypeImages: [],
 
     init: function () {
 
         for (let i = 0; i < 10; i++) {
             this.fishes.push(this.createFish());
           }
-
+      this.fishType();
       this.renderFish();
       this.startGame();
     },
@@ -17,8 +17,8 @@ let anglerAnnihilator = {
     fishdiv.className = "fish"
     this.container.append(fishdiv)
     let fish = {
-        x_pos: Math.random() * 580,
-        y_pos: Math.random() * 580,
+        x_pos: Math.random() * 100,
+        y_pos: Math.random() * 550,
         x_velocity: Math.random() * 1,
         y_velocity: Math.random() * .5,
         radius: 5,
@@ -26,31 +26,23 @@ let anglerAnnihilator = {
     }
     return fish;
     },
-    //createFish: function () {
-    //    let fishes = document.createElement("div")
-    //    fishes.className = "fish" 
-    //    let fishArray = [
-    //        {name: 'greyFish', image: "https://images.twinkl.co.uk/tr/image/upload/illustation/Swimming-Fish---Animated-Tail---Y2-Gymnastics-Under-the-Sea-Lesson-1---Balancing-Lesson-Pack-English---KS1.png"},
-    //         {name: 'yellowFish', image: "https://grid.gograph.com/tropical-cartoon-fish-eps-illustration_gg61604880.jpg"},
-    //         {name: 'orangeFish', image:"https://thumbs.dreamstime.com/b/pygoplites-diacanthus-aquarium-tropical-fish-144745023.jpg"},
-    //         {name: 'blueFish', image:"https://webstockreview.net/images/clipart-fish-teal-3.png"},
-    //         {name: 'greenFish', image:"https://thumbs.dreamstime.com/b/zanclus-cornutus-aquarium-tropical-fish-144745146.jpg"},
-    //         {name: 'redFish', image:"https://www.carlswebgraphics.com/fish-images/2020-red-fish-clipart.jpg"},
-    //         {name: 'purpleFish', image:"https://img.favpng.com/2/6/13/image-fish-portable-network-graphics-download-png-favpng-ebhYVWTEHGsTG2iafehsBLJP8.jpg"},
-    //         {name: 'magicFish', image:"https://webstockreview.net/images/clipart-borders-fish-8.png"},
-    //         {name: 'brownFish', image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRSggT2-afkjHeOQ0lVVWCCtlhtA8m-KQebg&usqp=CAU"}
-    //     ]
 
-    //     for (let i = 0; i < this.fish.length; i += 1) {
-    //         var fishImage = this.fish[i]
-    //        var pez = getRandomItem(fishArray)
-    //         this.fishArray[i].push(this.fish)
-    //         fish[i].innerHTML = pez.name + '<img src="' + pez.image + ' > '
-    //         document.getElementById('animation_container').appendChild(fishImage);
-    //     }
-    // },
-
-    fishtype: function () {
+    fishType: function () {
+        let RandomNum = function(){
+            Random = Math.random ()*8;
+            return Math.round(Random)
+        }
+        let fishType1 = document.getElementsByClassName("fish")
+        let fishTypeImages = 
+    ["https://st4.depositphotos.com/22309242/24217/v/950/depositphotos_242170550-stock-illustration-zanclus-cornutus-aquarium-tropical-fish.jpg", 
+    "https://www.clipartmax.com/png/middle/248-2482386_cute-red-fish-clipart-transparent-background-clip-art-fish.png",
+    "https://previews.123rf.com/images/segoviadesign/segoviadesign1207/segoviadesign120700029/14288165-tropical-cartoon-fish.jpg",
+    "https://thumbs.dreamstime.com/z/acanthurus-aquarium-tropical-fish-144745305.jpg",
+    "https://thumbs.dreamstime.com/z/pygoplites-diacanthus-aquarium-tropical-fish-144745023.jpg",
+    "https://images.twinkl.co.uk/tr/image/upload/illustation/Swimming-Fish---Animated-Tail---Y2-Gymnastics-Under-the-Sea-Lesson-1---Balancing-Lesson-Pack-English---KS1.png",
+    "https://img.favpng.com/2/6/13/image-fish-portable-network-graphics-download-png-favpng-ebhYVWTEHGsTG2iafehsBLJP8.jpg",
+    "https://webstockreview.net/images/clipart-borders-fish-8.png"]
+    fishType1.src = fishTypeImages[RandomNum()];
     
     },
 
