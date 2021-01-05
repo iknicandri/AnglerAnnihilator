@@ -46,6 +46,10 @@ let anglerAnnihilator = {
     
     },
 
+    giantNet: function () {
+
+    },
+
     startGame: function () {
 
     },

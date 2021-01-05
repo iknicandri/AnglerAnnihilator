@@ -32,6 +32,11 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+}
+
+#net {
+    position: absolute;
+    background-image: url("../Images/amma.jpeg"); 
 }
