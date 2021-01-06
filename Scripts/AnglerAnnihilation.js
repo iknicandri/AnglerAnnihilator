@@ -8,9 +8,10 @@ let anglerAnnihilator = {
         for (let i = 0; i < 10; i++) {
             this.fishes.push(this.createFish());
           }
-      this.fishType();
+      
       this.renderFish();
-      this.startGame();
+      //this.startGame();
+      this.fishType();
     },
     createFish: function () {
     let fishdiv = document.createElement("div")
@@ -34,7 +35,7 @@ let anglerAnnihilator = {
         }
         let fishType1 = document.getElementsByClassName("fish")
         let fishTypeImages = 
-    ["https://st4.depositphotos.com/22309242/24217/v/950/depositphotos_242170550-stock-illustration-zanclus-cornutus-aquarium-tropical-fish.jpg", 
+    [ 
     "https://www.clipartmax.com/png/middle/248-2482386_cute-red-fish-clipart-transparent-background-clip-art-fish.png",
     "https://previews.123rf.com/images/segoviadesign/segoviadesign1207/segoviadesign120700029/14288165-tropical-cartoon-fish.jpg",
     "https://thumbs.dreamstime.com/z/acanthurus-aquarium-tropical-fish-144745305.jpg",
@@ -43,6 +44,9 @@ let anglerAnnihilator = {
     "https://img.favpng.com/2/6/13/image-fish-portable-network-graphics-download-png-favpng-ebhYVWTEHGsTG2iafehsBLJP8.jpg",
     "https://webstockreview.net/images/clipart-borders-fish-8.png"]
     fishType1.src = fishTypeImages[RandomNum()];
+    if (this.fishes.type == 1) {
+        this.fishes.element.style.getElementsByClassName("greenFish")
+    }
     
     },
 
@@ -66,9 +70,11 @@ let anglerAnnihilator = {
     },
     renderFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
-            console.log("renderingFish")
             this.fishes[i].element.style.top = this.fishes[i].y_pos + "px"
             this.fishes[i].element.style.left = this.fishes[i].x_pos + "px"
+           // if (fishes.green == 1) {
+            //    fishes.element.style.backgroundImage = "https://st4.depositphotos.com/22309242/24217/v/950/depositphotos_242170550-stock-illustration-zanclus-cornutus-aquarium-tropical-fish.jpg"
+          //  }
         }
     },
     
