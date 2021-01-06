@@ -36,6 +36,78 @@ body {
     height: 25px;
 }
 
+.yellowFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../Images/14288165-tropical-cartoon-fish.jpg")
+}
+
+.redFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../Images/2020-red-fish-clipart.jpg")
+}
+
+.blueFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../Images/download.jpg");
+}
+
+.pinkFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../Images/images.jpg")
+}
+
+.orangeFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../Images/pygoplites-diacanthus-aquarium-tropical-fish-144745023.jpg")
+}
+
+.greyFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../Images/Swimming-Fish---Animated-Tail---Y2-Gymnastics-Under-the-Sea-Lesson-1---Balancing-Lesson-Pack-English---KS1.png")
+}
+
+.greenFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image:url("../Images/zanclus-cornutus-aquarium-tropical-fish-144745146.jpg")
+}
+
+.purpleFish {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../Images/image-fish-portable-network-graphics-download-png-favpng-ebhYVWTEHGsTG2iafehsBLJP8.jpg")
+}
+
 #net {
     position: absolute;
     background-image: url("../Images/amma.jpeg"); 
