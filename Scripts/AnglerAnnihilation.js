@@ -49,7 +49,10 @@ let anglerAnnihilator = {
     createGiantNet: function () {
         let netdiv = document.createElement("div")
         netdiv.className = "net"
+        //let net = document.getElementsByClassName("net")
         this.container.append(netdiv)
+        
+        //document.body.appendChild(net);
         let net = {
             x_pos: Math.random() * 100,
             y_pos: Math.random() * 550,

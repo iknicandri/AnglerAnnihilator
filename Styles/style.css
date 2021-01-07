@@ -108,7 +108,7 @@ body {
     background-image: url("../Images/image-fish-portable-network-graphics-download-png-favpng-ebhYVWTEHGsTG2iafehsBLJP8.jpg")
 }
 
-#net {
+.net {
     position: absolute;
     top: 0px;
     right: 0px;
