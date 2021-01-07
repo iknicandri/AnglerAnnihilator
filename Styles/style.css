@@ -42,12 +42,33 @@ body {
 }
 
 .redFish {
-    background-image: url("../Images/redFish.jpg")
+    background-image: url("../Images/redFish.jpg");
 }
 
 .blueFish {
-    background-image: url("../Images/blueFish.jpg")
+    background-image: url("../Images/blueFish.jpg");
 }
+
+.pinkFish {
+    background-image: url("../Images/pinkFish.jpg");
+}
+
+.greenFish {
+    background-image: url("../Images/greenFish.jpg");
+}
+
+.orangeFish {
+    background-image: url("../Images/orangeFish.jpg");
+}
+
+.greyFish {
+    background-image: url("../Images/greyFish.png");
+}
+
+.purpleFish {
+    background-image: url("../Images/purpleFish.jpg");
+}
+
 
 .net {
     position: absolute;
@@ -55,5 +76,6 @@ body {
     right: 0px;
     width: 30px;
     height: 30px;
+    background-size: 30px 30px;
     background-image: url("../Images/amma.jpeg"); 
 }
