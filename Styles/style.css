@@ -32,80 +32,41 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
+    background-size: 25px 25px;
     width: 25px;
     height: 25px;
 }
 
 .yellowFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../Images/14288165-tropical-cartoon-fish.jpg")
+    background-image: url("../Images/yellowFish.jpg");
 }
 
 .redFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../Images/2020-red-fish-clipart.jpg")
+    background-image: url("../Images/redFish.jpg");
 }
 
 .blueFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../Images/download.jpg");
+    background-image: url("../Images/blueFish.jpg");
 }
 
 .pinkFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../Images/images.jpg")
-}
-
-.orangeFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../Images/pygoplites-diacanthus-aquarium-tropical-fish-144745023.jpg")
-}
-
-.greyFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../Images/Swimming-Fish---Animated-Tail---Y2-Gymnastics-Under-the-Sea-Lesson-1---Balancing-Lesson-Pack-English---KS1.png")
+    background-image: url("../Images/pinkFish.jpg");
 }
 
 .greenFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image:url("../Images/zanclus-cornutus-aquarium-tropical-fish-144745146.jpg")
+    background-image: url("../Images/greenFish.jpg");
+}
+
+.orangeFish {
+    background-image: url("../Images/orangeFish.jpg");
+}
+
+.greyFish {
+    background-image: url("../Images/greyFish.png");
 }
 
 .purpleFish {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 25px;
-    height: 25px;
-    background-image: url("../Images/image-fish-portable-network-graphics-download-png-favpng-ebhYVWTEHGsTG2iafehsBLJP8.jpg")
+    background-image: url("../Images/purpleFish.jpg");
 }
 
 .net {
@@ -114,5 +75,6 @@ body {
     right: 0px;
     width: 30px;
     height: 30px;
+    background-size: 30px 30px;
     background-image: url("../Images/amma.jpeg"); 
 }
