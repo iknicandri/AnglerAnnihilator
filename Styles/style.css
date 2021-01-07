@@ -32,33 +32,33 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
-    background-size: 25px 25px;
-    width: 25px;
-    height: 25px;
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
 }
 
 .yellowFish {
-    background-image: url("../Images/yellowFish.jpg");
+    background-image: url("../Images/yellowFish.png");
 }
 
 .redFish {
-    background-image: url("../Images/redFish.jpg");
+    background-image: url("../Images/redFish.png");
 }
 
 .blueFish {
-    background-image: url("../Images/blueFish.jpg");
+    background-image: url("../Images/blueFish.png");
 }
 
 .pinkFish {
-    background-image: url("../Images/pinkFish.jpg");
+    background-image: url("../Images/pinkFish.png");
 }
 
 .greenFish {
-    background-image: url("../Images/greenFish.jpg");
+    background-image: url("../Images/greenFish.png");
 }
 
 .orangeFish {
-    background-image: url("../Images/orangeFish.jpg");
+    background-image: url("../Images/orangeFish.png");
 }
 
 .greyFish {
@@ -66,7 +66,7 @@ body {
 }
 
 .purpleFish {
-    background-image: url("../Images/purpleFish.jpg");
+    background-image: url("../Images/purpleFish.png");
 }
 
 
