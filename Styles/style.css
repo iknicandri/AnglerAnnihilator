@@ -72,9 +72,9 @@ body {
 .net {
     position: absolute;
     top: 0px;
-    left: 0px;
-    width: 30px;
-    height: 30px;
-    background-size: 30px 30px;
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    background-size: 100px 100px;
     background-image: url("../Images/net.png"); 
 }

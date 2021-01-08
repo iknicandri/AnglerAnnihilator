@@ -64,8 +64,8 @@ let anglerAnnihilator = {
        
         this.container.append(netdiv)
         let net = {
-            x_pos: Math.random() * 100,
-            y_pos: Math.random() * 550,
+            x_pos: Math.random() * 1250,
+            y_pos: Math.random() * 500,
             x_velocity: 0,
             y_velocity: Math.random() * .5,
             radius: 5,
