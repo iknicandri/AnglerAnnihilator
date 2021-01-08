@@ -31,8 +31,29 @@ let anglerAnnihilator = {
         element: fishdiv,
     }
     if(fish.type == 1) {
-        fish.element.classList.add("yellowFish");
-    } 
+            fish.element.classList.add("yellowFish")
+    } else if 
+        (fish.type == 2){
+            fish.element.classList.add("redFish")
+    } else if 
+        (fish.type == 3){
+            fish.element.classList.add("blueFish")
+    } else if 
+        (fish.type == 4){
+            fish.element.classList.add("purpleFish")
+    } else if 
+        (fish.type == 5){
+            fish.element.classList.add("orangeFish")
+    } else if
+        (fish.type == 6){
+            fish.element.classList.add("greyFish")
+    } else if
+        (fish.type == 7){
+            fish.element.classList.add("pinkFish")
+    } else if
+        (fish.type == 8){
+            fish.element.classList.add("greenFish")
+    }
     return fish;
     },
 
