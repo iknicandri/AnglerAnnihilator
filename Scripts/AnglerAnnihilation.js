@@ -1,6 +1,8 @@
 let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
     fishes: [],
+    net: [],
+    hooks: [],
     //fishTypeImages: [],
 
     init: function () {
@@ -10,6 +12,10 @@ let anglerAnnihilator = {
           }
       this.renderFish();
       //this.startGame();
+      for (let i = 0; i < 2; i++) {
+          this.net.push(this.createGiantNet());
+      }
+      this.renderNet();
     },
     createFish: function () {
     let fishdiv = document.createElement("div")
@@ -32,10 +38,8 @@ let anglerAnnihilator = {
     createGiantNet: function () {
         let netdiv = document.createElement("div")
         netdiv.className = "net"
-        //let net = document.getElementsByClassName("net")
+       
         this.container.append(netdiv)
-        
-        //document.body.appendChild(net);
         let net = {
             x_pos: Math.random() * 100,
             y_pos: Math.random() * 550,
@@ -51,6 +55,12 @@ let anglerAnnihilator = {
             for (let i = 0; i < this.fishes.length; i++) {
                 this.fishes[i].element.style.top = this.fishes[i].y_pos + "px"
                 this.fishes[i].element.style.left = this.fishes[i].x_pos + "px"
+            }
+        },
+        renderNet: function () {
+            for (let i = 0; i < 1; i++) {
+                this.net[i].element.style.top = this.net[i].y_pos + "px";
+                this.net[i].element.style.left = this.net[i].x_pos + "px";
             }
         },
 
