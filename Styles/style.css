@@ -15,7 +15,7 @@ body {
     height: 600px;
     border: 1px solid #eee;
     border-radius: 10px;
-    background-image: url("../Images/91865587-cartoon-sea-ocean-the-seabed-for-the-game-horizontal-seamless-coral-reef-nautical-background-vector-.jpg");
+    background-image: url("../Images/d40506d2c691b53284269f7c2cf44151.png");
     margin: auto;
 }
 
@@ -32,9 +32,9 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px;
+    background-size: 70px 70px;
+    width: 70px;
+    height: 70px;
 }
 
 .yellowFish {
@@ -72,9 +72,9 @@ body {
 .net {
     position: absolute;
     top: 0px;
-    right: 0px;
+    left: 0px;
     width: 30px;
     height: 30px;
     background-size: 30px 30px;
-    background-image: url("../Images/amma.jpeg"); 
+    background-image: url("../Images/net.png"); 
 }
