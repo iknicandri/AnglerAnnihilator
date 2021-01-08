@@ -24,7 +24,7 @@ let anglerAnnihilator = {
     let fish = {
         type: Math.round(Math.random() * 8),
         x_pos: Math.random() * 100,
-        y_pos: Math.random() * 550,
+        y_pos: Math.random() * 500,
         x_velocity: Math.random() * 1,
         y_velocity: Math.random() * .5,
         radius: 5,
