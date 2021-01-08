@@ -14,10 +14,9 @@ let anglerAnnihilator = {
     createFish: function () {
     let fishdiv = document.createElement("div")
     fishdiv.className = "fish"
-    fishdiv.classList.add("yellowFish");
-    
-    this.container.append(fishdiv)
+    this.container.append(fishdiv);
     let fish = {
+        type: Math.round(Math.random() * 8),
         x_pos: Math.random() * 100,
         y_pos: Math.random() * 550,
         x_velocity: Math.random() * 1,
@@ -25,6 +24,9 @@ let anglerAnnihilator = {
         radius: 5,
         element: fishdiv,
     }
+    if(fish.type == 1) {
+        fish.element.classList.add("yellowFish");
+    } 
     return fish;
     },
 
