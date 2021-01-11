@@ -1,5 +1,6 @@
 let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
+    animation1: undefined,
     fishes: [],
     net: [],
     hooks: [],
@@ -16,7 +17,11 @@ let anglerAnnihilator = {
           this.net.push(this.createGiantNet());
       }
       this.renderNet();
-      this.swimFish();
+      for (let i = 0; i < 3; i++) {
+        this.hooks.push(this.createHook());
+    }
+    this.renderHooks();
+    this.startGame();
     },
     createFish: function () {
     let fishdiv = document.createElement("div")
@@ -30,6 +35,7 @@ let anglerAnnihilator = {
         y_velocity: Math.random() * .5,
         radius: 5,
         element: fishdiv,
+        canSwim: true,
     }
     if(fish.type == 1) {
             fish.element.classList.add("yellowFish")
@@ -72,6 +78,33 @@ let anglerAnnihilator = {
         }
         return net;
         },
+        createHook: function () {
+            let hookdiv = document.createElement("div")
+            hookdiv.className = "hook"
+           
+            this.container.append(hookdiv)
+            let hook = {
+                x_pos: Math.random() * 100,
+                y_pos: Math.random() * 550,
+                x_velocity: 7,
+                y_velocity: Math.random() * 5,
+                radius: 5,
+                element: hookdiv,
+                canSwim: true,
+            }
+            return hook;
+            },
+            startGame: function () {
+                this.animation1 = window.setInterval(this.animateFish.bind(anglerAnnihilator), 30);
+            },
+            animateFish: function () {
+                this.renderFish();
+                this.renderNet();
+                this.renderHooks();
+                this.swimFish();
+                this.swimHook();
+
+            },
 
         renderFish: function () {
             for (let i = 0; i < this.fishes.length; i++) {
@@ -85,19 +118,34 @@ let anglerAnnihilator = {
                 this.net[i].element.style.left = this.net[i].x_pos + "px";
             }
         },
+        renderHooks: function () {
+            for (let i = 0; i < this.hooks.length; i++) {
+                this.hooks[i].element.style.top = this.hooks[i].y_pos + "px";
+                this.hooks[i].element.style.left = this.hooks[i].x_pos + "px";  
+            }
+        },
 
-    startGame: function () {
-
-    },
-    endGame: function () {
-
-    },
+    
 
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
             this.fishes[i].y_pos = this.fishes[i].y_pos + this.fishes[i].y_velocity;
     }
+    },
+    swimHook: function () {
+        for (let i = 0; i < this.hooks.length; i++) {
+            
+this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
+//this.hooks[i].y_pos = this.hooks[i].y_pos + this.hooks[i].y_velocity;
+            
+        }
+    },
+    startButton: function () {
+
+    },
+    endGame: function () {
+
     },
 
 }
