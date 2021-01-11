@@ -32,8 +32,8 @@ let anglerAnnihilator = {
         type: Math.round(Math.random() * 8),
         x_pos: Math.random() * 100,
         y_pos: Math.random() * 500,
-        x_velocity: Math.random() * 1,
-        y_velocity: Math.random() * .5,
+        x_velocity: 6,
+        y_velocity: Math.random() *5,
         radius: 5,
         element: fishdiv,
         canSwim: true,
@@ -131,16 +131,14 @@ let anglerAnnihilator = {
 
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
-            if (this.fishes[i].canSwim == true) {
-
-            }
+            this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
         }
     },
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
             
 this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
-//this.hooks[i].y_pos = this.hooks[i].y_pos + this.hooks[i].y_velocity;
+
             
         }
     },
