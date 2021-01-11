@@ -16,6 +16,7 @@ let anglerAnnihilator = {
           this.net.push(this.createGiantNet());
       }
       this.renderNet();
+      this.swimFish();
     },
     createFish: function () {
     let fishdiv = document.createElement("div")
@@ -61,13 +62,11 @@ let anglerAnnihilator = {
     createGiantNet: function () {
         let netdiv = document.createElement("div")
         netdiv.className = "net"
-       
         this.container.append(netdiv)
         let net = {
-            x_pos: Math.random() * 1250,
-            y_pos: Math.random() * 500,
-            x_velocity: 0,
-            y_velocity: Math.random() * .5,
+            x_pos: 1250,
+            y_pos: 250,
+            y_velocity: 0,
             radius: 5,
             element: netdiv,
         }
@@ -96,10 +95,9 @@ let anglerAnnihilator = {
 
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
-            if (this.fishes[i].canSwim == true) {
-
-            }
-        }
+            this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
+            this.fishes[i].y_pos = this.fishes[i].y_pos + this.fishes[i].y_velocity;
+    }
     },
 
 }
