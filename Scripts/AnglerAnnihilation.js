@@ -6,7 +6,8 @@ let anglerAnnihilator = {
     hooks: [],
     score: {},
     //fishTypeImages: [],
-//Isabelle
+
+    //Isabelle
     init: function () {
 
         for (let i = 0; i < 8; i++) {
@@ -38,6 +39,7 @@ let anglerAnnihilator = {
         radius: 5,
         element: fishdiv,
         canSwim: true,
+        caught: false,
     }
     if(fish.type == 1) {
             fish.element.classList.add("yellowFish")
@@ -107,6 +109,7 @@ let anglerAnnihilator = {
                 this.renderHooks();
                 this.swimFish();
                 this.swimHook();
+                this.checkIfCaught();
 
             },
         //Joah
@@ -147,6 +150,47 @@ let anglerAnnihilator = {
 
         }
     },
+    checkIfCaught: function () {
+        
+        var fish1 = {x: 5, y: 5, width: 70, height: 70}
+        var net2 = {x: 20, y: 10, width: 100, height: 100}
+        
+        if (fish1.x < net2.x + net2.width &&
+           fish1.x + fish1.width > net2.x &&
+           fish1.y < net2.y + net2.height &&
+           fish1.y + fish1.height > net2.y) {
+            // collision detected!
+        }
+        
+        // filling in the values =>
+        
+        if (5 < 30 &&
+            55 > 20 &&
+            5 < 20 &&
+            55 > 10) {
+            // collision detected!
+        }
+
+
+        //for(let i = 0; i < this.net.length; i++) {
+        //    let aNet = this.net[i];
+        //    if(aNet.caught == false){
+        //       for (let j = 0; j < this.fishes.length; j++) {
+        //            let dx = aNet.x_pos - this.fishes[j].x_pos;
+        //            let dy = aNet.y_pos - this.fishes[j].y_pos;
+        //            let distance = Math.sqrt(dx * dx * dy * dy);
+        //
+        //            if (distance < aNet.radius + this.fishes[j].radius) {
+        //                console.log("fish have been caught")
+        //                if(this.fishes[j].caught == false) {
+        //                    this.fishes[j].caught = true;
+        //                }
+        //            }
+        //        }
+        //    }
+        // }
+    },
+
     startButton: function () {
 
     },
