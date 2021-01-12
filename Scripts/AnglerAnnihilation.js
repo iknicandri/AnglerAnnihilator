@@ -6,7 +6,7 @@ let anglerAnnihilator = {
     hooks: [],
     score: {},
     //fishTypeImages: [],
-
+//Isabelle
     init: function () {
 
         for (let i = 0; i < 8; i++) {
@@ -24,6 +24,7 @@ let anglerAnnihilator = {
         this.renderHooks();
         this.startGame();
     },
+    //Joah
     createFish: function () {
     let fishdiv = document.createElement("div")
     fishdiv.className = "fish"
@@ -65,7 +66,7 @@ let anglerAnnihilator = {
         return fish;
     },
 
-
+    //Isabelle
     createGiantNet: function () {
         let netdiv = document.createElement("div")
         netdiv.className = "net"
@@ -79,6 +80,7 @@ let anglerAnnihilator = {
         }
         return net;
         },
+        //Isabelle
         createHook: function () {
             let hookdiv = document.createElement("div")
             hookdiv.className = "hook"
@@ -95,6 +97,7 @@ let anglerAnnihilator = {
             }
             return hook;
             },
+            //Isabelle
             startGame: function () {
                 this.animation1 = window.setInterval(this.animateFish.bind(anglerAnnihilator), 30);
             },
@@ -106,19 +109,21 @@ let anglerAnnihilator = {
                 this.swimHook();
 
             },
-
+        //Joah
         renderFish: function () {
             for (let i = 0; i < this.fishes.length; i++) {
                 this.fishes[i].element.style.top = this.fishes[i].y_pos + "px"
                 this.fishes[i].element.style.left = this.fishes[i].x_pos + "px"
             }
         },
+        //Isabelle
         renderNet: function () {
             for (let i = 0; i < 1; i++) {
                 this.net[i].element.style.top = this.net[i].y_pos + "px";
                 this.net[i].element.style.left = this.net[i].x_pos + "px";
             }
         },
+        //Isabelle
         renderHooks: function () {
             for (let i = 0; i < this.hooks.length; i++) {
                 this.hooks[i].element.style.top = this.hooks[i].y_pos + "px";
@@ -127,12 +132,13 @@ let anglerAnnihilator = {
         },
 
     
-
+    //Isabelle
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
         }
     },
+    //Isabelle
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
 
