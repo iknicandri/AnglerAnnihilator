@@ -22,6 +22,18 @@ let anglerAnnihilator = {
         for (let i = 0; i < 3; i++) {
             this.hooks.push(this.createHook());
         }
+        //window.onkeydown = function (event) {
+        //    if (event.keyCode == 38) {
+        //      for (let i = 0; i < this.net.length; i++) {
+        //        this.net[i].style.backgroundColor = 'white';
+        //      }
+        //    } else if (event.keyCode == 40) {
+        //      this.color = 'grey';
+        //    }
+            
+      
+        //  }.bind(anglerAnnihilator)
+      
         this.renderHooks();
         this.startGame();
     },
@@ -200,6 +212,32 @@ let anglerAnnihilator = {
     Respawn: function () {
     
     },
+
+   upArrowPressed: function() {
+    var element = document.getElementsByClassName("net");
+    element.style.top = parseInt(element.style.top) - 5 + 'px';
+    },
+    
+    downArrowPressed: function () {
+        var element = document.getElementsByClassName("net");
+        element.style.top = parseInt(element.style.top) + 5 + 'px';
+    },
+
+    moveSelection: function(event) {
+        //evt = evt || window.event;
+        switch (event.keyCode) {
+            case 38:
+                this.upArrowPressed();
+                break;
+            case 40:
+                this.downArrowPressed();
+                break;
+        }
+    },
+   gameLoop: function() {
+        moveSelection();
+        setTimeout("gameLoop()",10)
+    }
 
 }
 anglerAnnihilator.init();
