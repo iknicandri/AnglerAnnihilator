@@ -21,8 +21,17 @@ let anglerAnnihilator = {
         for (let i = 0; i < 3; i++) {
             this.hooks.push(this.createHook());
         }
+        window.onkeyup = function(event) {
+            if (event.keyCode == 27) {
+                    history.back();
+            }
+        }
+
+        this.netMovement();
         this.renderHooks();
         this.startGame();
+
+        
     },
     createFish: function () {
     let fishdiv = document.createElement("div")
@@ -104,7 +113,8 @@ let anglerAnnihilator = {
                 this.renderHooks();
                 this.swimFish();
                 this.swimHook();
-
+                this.moveNet();
+                
             },
 
         renderFish: function () {
@@ -141,15 +151,24 @@ let anglerAnnihilator = {
 
         }
     },
+
     startButton: function () {
 
     },
     endGame: function () {
 
     },
-    Respawn: function () {
     
+    netMovement: function () {
+        window.onkeydown = function (event) {
+            if(event.keyCode == 38 || event.keyCode == 87) {
+                anglerAnnihilator.net.y_velocity = 4
+            }
+        }
     },
 
+    moveNet: function () {
+        this.net.y_pos = this.net.y_pos + this.net.y_velocity
+    }
 }
 anglerAnnihilator.init();
