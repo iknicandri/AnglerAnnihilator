@@ -7,6 +7,7 @@ let anglerAnnihilator = {
     score: {},
     //fishTypeImages: [],
 
+    //Isabelle
     init: function () {
 
         for (let i = 0; i < 8; i++) {
@@ -33,6 +34,7 @@ let anglerAnnihilator = {
 
         
     },
+    //Joah
     createFish: function () {
     let fishdiv = document.createElement("div")
     fishdiv.className = "fish"
@@ -46,6 +48,7 @@ let anglerAnnihilator = {
         radius: 5,
         element: fishdiv,
         canSwim: true,
+        caught: false,
     }
     if(fish.type == 1) {
             fish.element.classList.add("yellowFish")
@@ -74,7 +77,7 @@ let anglerAnnihilator = {
         return fish;
     },
 
-
+    //Isabelle
     createGiantNet: function () {
         let netdiv = document.createElement("div")
         netdiv.className = "net"
@@ -88,6 +91,7 @@ let anglerAnnihilator = {
         }
         return net;
         },
+        //Isabelle
         createHook: function () {
             let hookdiv = document.createElement("div")
             hookdiv.className = "hook"
@@ -104,6 +108,7 @@ let anglerAnnihilator = {
             }
             return hook;
             },
+            //Isabelle
             startGame: function () {
                 this.animation1 = window.setInterval(this.animateFish.bind(anglerAnnihilator), 30);
             },
@@ -114,21 +119,24 @@ let anglerAnnihilator = {
                 this.swimFish();
                 this.swimHook();
                 this.moveNet();
-                
-            },
+                this.checkIfCaught();
 
+            },
+        //Joah
         renderFish: function () {
             for (let i = 0; i < this.fishes.length; i++) {
                 this.fishes[i].element.style.top = this.fishes[i].y_pos + "px"
                 this.fishes[i].element.style.left = this.fishes[i].x_pos + "px"
             }
         },
+        //Isabelle
         renderNet: function () {
             for (let i = 0; i < 1; i++) {
                 this.net[i].element.style.top = this.net[i].y_pos + "px";
                 this.net[i].element.style.left = this.net[i].x_pos + "px";
             }
         },
+        //Isabelle
         renderHooks: function () {
             for (let i = 0; i < this.hooks.length; i++) {
                 this.hooks[i].element.style.top = this.hooks[i].y_pos + "px";
@@ -137,12 +145,13 @@ let anglerAnnihilator = {
         },
 
     
-
+    //Isabelle
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
         }
     },
+    //Isabelle
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
 
@@ -151,6 +160,46 @@ let anglerAnnihilator = {
 
         }
     },
+    checkIfCaught: function () {
+        
+        var fish1 = {x: 5, y: 5, width: 70, height: 70}
+        var net2 = {x: 20, y: 10, width: 100, height: 100}
+        
+        if (fish1.x < net2.x + net2.width &&
+           fish1.x + fish1.width > net2.x &&
+           fish1.y < net2.y + net2.height &&
+           fish1.y + fish1.height > net2.y) {
+            // collision detected!
+        }
+        
+        // filling in the values =>
+        
+        if (5 < 30 &&
+            55 > 20 &&
+            5 < 20 &&
+            55 > 10) {
+            // collision detected!
+        }
+
+
+        //for(let i = 0; i < this.net.length; i++) {
+        //    let aNet = this.net[i];
+        //    if(aNet.caught == false){
+        //       for (let j = 0; j < this.fishes.length; j++) {
+        //            let dx = aNet.x_pos - this.fishes[j].x_pos;
+        //            let dy = aNet.y_pos - this.fishes[j].y_pos;
+        //            let distance = Math.sqrt(dx * dx * dy * dy);
+        //
+        //            if (distance < aNet.radius + this.fishes[j].radius) {
+        //                console.log("fish have been caught")
+        //                if(this.fishes[j].caught == false) {
+        //                    this.fishes[j].caught = true;
+        //                }
+        //            }
+        //        }
+        //    }
+        // }
+    },
 
     startButton: function () {
 
@@ -158,7 +207,7 @@ let anglerAnnihilator = {
     endGame: function () {
 
     },
-    
+
     netMovement: function () {
         window.onkeydown = function (event) {
             if(event.keyCode == 38 || event.keyCode == 87) {
