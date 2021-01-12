@@ -4,6 +4,7 @@ let anglerAnnihilator = {
     fishes: [],
     net: [],
     hooks: [],
+    score: 0,
     //fishTypeImages: [],
 
     init: function () {
@@ -31,8 +32,8 @@ let anglerAnnihilator = {
         type: Math.round(Math.random() * 8),
         x_pos: Math.random() * 100,
         y_pos: Math.random() * 500,
-        x_velocity: Math.random() * 1,
-        y_velocity: Math.random() * .5,
+        x_velocity:  3,
+        y_velocity: .5,
         radius: 5,
         element: fishdiv,
         canSwim: true,
@@ -86,7 +87,7 @@ let anglerAnnihilator = {
             let hook = {
                 x_pos: Math.random() * 100,
                 y_pos: Math.random() * 550,
-                x_velocity: 7,
+                x_velocity: 3,
                 y_velocity: Math.random() * 5,
                 radius: 5,
                 element: hookdiv,
@@ -146,6 +147,9 @@ this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
     },
     endGame: function () {
 
+    },
+    Respawn: function () {
+    
     },
 
 }
