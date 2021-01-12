@@ -34,8 +34,17 @@ let anglerAnnihilator = {
       
         //  }.bind(anglerAnnihilator)
       
+        window.onkeyup = function(event) {
+            if (event.keyCode == 27) {
+                    history.back();
+            }
+        }
+
+        this.netMovement();
         this.renderHooks();
         this.startGame();
+
+        
     },
     //Joah
     createFish: function () {
@@ -121,6 +130,7 @@ let anglerAnnihilator = {
                 this.renderHooks();
                 this.swimFish();
                 this.swimHook();
+                this.moveNet();
                 this.checkIfCaught();
 
             },
@@ -209,35 +219,43 @@ let anglerAnnihilator = {
     endGame: function () {
 
     },
-    Respawn: function () {
-    
-    },
 
-   upArrowPressed: function() {
-    var element = document.getElementsByClassName("net");
-    element.style.top = parseInt(element.style.top) - 5 + 'px';
-    },
-    
-    downArrowPressed: function () {
-        var element = document.getElementsByClassName("net");
-        element.style.top = parseInt(element.style.top) + 5 + 'px';
-    },
-
-    moveSelection: function(event) {
-        //evt = evt || window.event;
-        switch (event.keyCode) {
-            case 38:
-                this.upArrowPressed();
-                break;
-            case 40:
-                this.downArrowPressed();
-                break;
+    netMovement: function () {
+        window.onkeydown = function (event) {
+            if(event.keyCode == 38 || event.keyCode == 87) {
+                anglerAnnihilator.net.y_velocity = 4
+            }
         }
     },
-   gameLoop: function() {
-        moveSelection();
-        setTimeout("gameLoop()",10)
-    }
 
+   // upArrowPressed: function() {
+    //var element = document.getElementsByClassName("net");
+   // element.style.top = parseInt(element.style.top) - 5 + 'px';
+    //},
+    
+   // downArrowPressed: function () {
+    //    var element = document.getElementsByClassName("net");
+    //    element.style.top = parseInt(element.style.top) + 5 + 'px';
+    //},
+
+    //moveSelection: function(event) {
+        //evt = evt || window.event;
+    //    switch (event.keyCode) {
+    //        case 38:
+    //            this.upArrowPressed();
+    //            break;
+    //        case 40:
+    //            this.downArrowPressed();
+    //            break;
+    //    }
+    //},
+   //gameLoop: function() {
+    //    moveSelection();
+    //    setTimeout("gameLoop()",10)
+    //}
+
+    moveNet: function () {
+        this.net.y_pos = this.net.y_pos + this.net.y_velocity
+    }
 }
 anglerAnnihilator.init();
