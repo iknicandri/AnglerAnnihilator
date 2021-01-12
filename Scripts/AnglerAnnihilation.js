@@ -4,25 +4,25 @@ let anglerAnnihilator = {
     fishes: [],
     net: [],
     hooks: [],
-    score: 0,
+    score: {},
     //fishTypeImages: [],
 
     init: function () {
 
         for (let i = 0; i < 8; i++) {
             this.fishes.push(this.createFish());
-          }
-      this.renderFish();
-      //this.startGame();
-      for (let i = 0; i < 1; i++) {
-          this.net.push(this.createGiantNet());
-      }
-      this.renderNet();
-      for (let i = 0; i < 3; i++) {
-        this.hooks.push(this.createHook());
-    }
-    this.renderHooks();
-    this.startGame();
+        }
+        this.renderFish();
+        //this.startGame();
+        for (let i = 0; i < 1; i++) {
+            this.net.push(this.createGiantNet());
+        }
+        this.renderNet();
+        for (let i = 0; i < 3; i++) {
+            this.hooks.push(this.createHook());
+        }
+        this.renderHooks();
+        this.startGame();
     },
     createFish: function () {
     let fishdiv = document.createElement("div")
@@ -40,32 +40,32 @@ let anglerAnnihilator = {
     }
     if(fish.type == 1) {
             fish.element.classList.add("yellowFish")
-    } else if 
-        (fish.type == 2){
+        } else if
+            (fish.type == 2) {
             fish.element.classList.add("redFish")
-    } else if 
-        (fish.type == 3){
+        } else if
+            (fish.type == 3) {
             fish.element.classList.add("blueFish")
-    } else if 
-        (fish.type == 4){
+        } else if
+            (fish.type == 4) {
             fish.element.classList.add("purpleFish")
-    } else if 
-        (fish.type == 5){
+        } else if
+            (fish.type == 5) {
             fish.element.classList.add("orangeFish")
-    } else if
-        (fish.type == 6){
+        } else if
+            (fish.type == 6) {
             fish.element.classList.add("greyFish")
-    } else if
-        (fish.type == 7){
+        } else if
+            (fish.type == 7) {
             fish.element.classList.add("pinkFish")
-    } else if
-        (fish.type == 8){
+        } else if
+            (fish.type == 8) {
             fish.element.classList.add("greenFish")
-    }
-    return fish;
+        }
+        return fish;
     },
 
-    
+
     createGiantNet: function () {
         let netdiv = document.createElement("div")
         netdiv.className = "net"
@@ -131,15 +131,14 @@ let anglerAnnihilator = {
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
-            this.fishes[i].y_pos = this.fishes[i].y_pos + this.fishes[i].y_velocity;
-    }
+        }
     },
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
-            
-this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
-//this.hooks[i].y_pos = this.hooks[i].y_pos + this.hooks[i].y_velocity;
-            
+
+            this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
+
+
         }
     },
     startButton: function () {
