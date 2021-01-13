@@ -84,7 +84,7 @@ let anglerAnnihilator = {
         netdiv.className = "net"
         this.container.append(netdiv)
         let net = {
-            x_pos: 1250,
+            x_pos: 1150,
             y_pos: 250,
             y_velocity: 0,
             radius: 5,
@@ -150,14 +150,26 @@ let anglerAnnihilator = {
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
+            if(this.fishes[i].x_pos >= 1280) {
+               this.fishes.pop(i);
+                //document.getElementsByClassName('redFish').style.display = 'none';
+                //document.getElementsByClassName('greenFish').style.display = 'none';
+                //document.getElementsByClassName('purpleFish').style.display = 'none';
+                //document.getElementsByClassName('orangeFish').style.display = 'none';
+                
+    
+            }
         }
+        
     },
     //Isabelle
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
 
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
-
+            if(this.hooks[i].x_pos >= 1280) {
+                this.hooks.pop(i);
+            }
 
         }
     },
@@ -219,6 +231,32 @@ let anglerAnnihilator = {
             }
         }
     },
+
+   // upArrowPressed: function() {
+    //var element = document.getElementsByClassName("net");
+   // element.style.top = parseInt(element.style.top) - 5 + 'px';
+    //},
+    
+   // downArrowPressed: function () {
+    //    var element = document.getElementsByClassName("net");
+    //    element.style.top = parseInt(element.style.top) + 5 + 'px';
+    //},
+
+    //moveSelection: function(event) {
+        //evt = evt || window.event;
+    //    switch (event.keyCode) {
+    //        case 38:
+    //            this.upArrowPressed();
+    //            break;
+    //        case 40:
+    //            this.downArrowPressed();
+    //            break;
+    //    }
+    //},
+   //gameLoop: function() {
+    //    moveSelection();
+    //    setTimeout("gameLoop()",10)
+    //}
 
     moveNet: function () {
         this.net.y_pos = this.net.y_pos + this.net.y_velocity
