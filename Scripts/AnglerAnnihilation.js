@@ -2,7 +2,7 @@ let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
     animation1: undefined,
     fishes: [],
-    net: [],
+    net: undefined,
     hooks: [],
     score: {},
     //fishTypeImages: [],
@@ -15,9 +15,8 @@ let anglerAnnihilator = {
         }
         this.renderFish();
         //this.startGame();
-        for (let i = 0; i < 1; i++) {
-            this.net.push(this.createGiantNet());
-        }
+        this.net = this.createGiantNet();
+
         this.renderNet();
         for (let i = 0; i < 3; i++) {
             this.hooks.push(this.createHook());
@@ -32,8 +31,6 @@ let anglerAnnihilator = {
         this.netMovement();
         this.renderHooks();
         this.startGame();
-
-        
     },
     //Joah
     createFish: function () {
@@ -132,10 +129,9 @@ let anglerAnnihilator = {
         },
         //Isabelle
         renderNet: function () {
-            for (let i = 0; i < 1; i++) {
-                this.net[i].element.style.top = this.net[i].y_pos + "px";
-                this.net[i].element.style.left = this.net[i].x_pos + "px";
-            }
+            this.net.element.style.top = this.net.y_pos + "px";
+            this.net.element.style.left = this.net.x_pos + "px";
+            
         },
         //Isabelle
         renderHooks: function () {
@@ -174,51 +170,18 @@ let anglerAnnihilator = {
         }
     },
     checkIfCaught: function () {
-        for(let i = 0; i < this.fishes.length; i++) {
-            for(let i = 0; i < this.net.length; i++) {
-                
-            }
+      for (let i = 0; i < this.fishes.length; i++) {
+          let dx = (this.net.x_pos + this.net.radius - (this.fishes[i].x_pos + this.fishes[i].radius))
+          let dy = (this.net.y_pos + this.net.radius - (this.fishes[i].y_pos + this.fishes[i].radius))
+          let distance = Math.sqrt(dx * dx * dy * dy)
+        if(distance <= this.net.radius + this.fishes[i].radius && this.fishes[i].x_pos != null) {
+            this.fishes[i].x_pos = null
+            this.fishes[i].y_pos = null
+            this.container.removeChild(this.fishes[i].element)
         }
-        
-        if (fish1.x < net2.x + net2.width &&
-           fish1.x + fish1.width > net2.x &&
-           fish1.y < net2.y + net2.height &&
-           fish1.y + fish1.height > net2.y) {
-            // collision detected!
-        }
-        
-        // filling in the values =>
-        
-        if (5 < 30 &&
-            55 > 20 &&
-            5 < 20 &&
-            55 > 10) {
-            // collision detected!
-        }
-
-
-        //for(let i = 0; i < this.net.length; i++) {
-        //    let aNet = this.net[i];
-        //    if(aNet.caught == false){
-        //       for (let j = 0; j < this.fishes.length; j++) {
-        //            let dx = aNet.x_pos - this.fishes[j].x_pos;
-        //            let dy = aNet.y_pos - this.fishes[j].y_pos;
-        //            let distance = Math.sqrt(dx * dx * dy * dy);
-        //
-        //            if (distance < aNet.radius + this.fishes[j].radius) {
-        //                console.log("fish have been caught")
-        //                if(this.fishes[j].caught == false) {
-        //                    this.fishes[j].caught = true;
-        //                }
-        //            }
-        //        }
-        //    }
-        // }
+      }
     },
 
-    startButton: function () {
-
-    },
     endGame: function () {
 
     },
@@ -227,39 +190,24 @@ let anglerAnnihilator = {
     netMovement: function () {
         window.onkeydown = function (event) {
             if(event.keyCode == 38 || event.keyCode == 87) {
+                anglerAnnihilator.net.y_velocity = -4
+                console.log(keyCode == 38)
+            }
+        }
+        window.onkeyup = function (event) {
+            if(event.keyCode == 40 || event.keyCode == 83) {
                 anglerAnnihilator.net.y_velocity = 4
             }
         }
     },
 
-   // upArrowPressed: function() {
-    //var element = document.getElementsByClassName("net");
-   // element.style.top = parseInt(element.style.top) - 5 + 'px';
-    //},
-    
-   // downArrowPressed: function () {
-    //    var element = document.getElementsByClassName("net");
-    //    element.style.top = parseInt(element.style.top) + 5 + 'px';
-    //},
+    moveNet: function () {
+        this.net.y_pos = this.net.y_pos + this.net.y_velocity
+    },
 
-    //moveSelection: function(event) {
-        //evt = evt || window.event;
-    //    switch (event.keyCode) {
-    //        case 38:
-    //            this.upArrowPressed();
-    //            break;
-    //        case 40:
-    //            this.downArrowPressed();
-    //            break;
-    //    }
-    //},
    //gameLoop: function() {
     //    moveSelection();
     //    setTimeout("gameLoop()",10)
     //}
-
-    moveNet: function () {
-        this.net.y_pos = this.net.y_pos + this.net.y_velocity
-    }
 }
 anglerAnnihilator.init();
