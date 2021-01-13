@@ -21,13 +21,7 @@ let anglerAnnihilator = {
         for (let i = 0; i < 3; i++) {
             this.hooks.push(this.createHook());
         }
-        //Joah
-        window.onkeyup = function(event) {
-            if (event.keyCode == 27) {
-                    history.back();
-            }
-        }
-
+       
         this.netMovement();
         this.renderHooks();
         this.startGame();
@@ -41,7 +35,7 @@ let anglerAnnihilator = {
         type: Math.round(Math.random() * 8),
         x_pos: Math.random() * 100,
         y_pos: Math.random() * 500,
-        x_velocity:  3,
+        x_velocity:  2,
         y_velocity: .5,
         radius: 5,
         element: fishdiv,
@@ -75,6 +69,10 @@ let anglerAnnihilator = {
         return fish;
     },
 
+    fishRespawn: function () {
+        this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
+    },
+
     //Isabelle
     createGiantNet: function () {
         let netdiv = document.createElement("div")
@@ -84,6 +82,7 @@ let anglerAnnihilator = {
             x_pos: 1150,
             y_pos: 250,
             y_velocity: 0,
+            x_velocity: 0,
             radius: 5,
             element: netdiv,
         }
@@ -161,7 +160,6 @@ let anglerAnnihilator = {
     //Isabelle
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
-
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
             if(this.hooks[i].x_pos >= 1280) {
                 this.hooks.pop(i);
@@ -169,6 +167,7 @@ let anglerAnnihilator = {
 
         }
     },
+    // Joah
     checkIfCaught: function () {
       for (let i = 0; i < this.fishes.length; i++) {
           let dx = (this.net.x_pos + this.net.radius - (this.fishes[i].x_pos + this.fishes[i].radius))
@@ -191,18 +190,39 @@ let anglerAnnihilator = {
         window.onkeydown = function (event) {
             if(event.keyCode == 38 || event.keyCode == 87) {
                 anglerAnnihilator.net.y_velocity = -4
-                console.log(keyCode == 38)
             }
-        }
-        window.onkeyup = function (event) {
             if(event.keyCode == 40 || event.keyCode == 83) {
                 anglerAnnihilator.net.y_velocity = 4
             }
+            if(event.keyCode == 39 || event.keyCode == 68) {
+                anglerAnnihilator.net.x_velocity = 4
+            }
+            if(event.keyCode == 37 || event.keyCode == 65) {
+                anglerAnnihilator.net.x_velocity = -4
+            }
         }
+        window.onkeyup = function(event) {
+            if(event.keyCode == 38 || event.keyCode == 87) {
+                anglerAnnihilator.net.y_velocity = 0
+            }
+            if(event.keyCode == 40 || event.keyCode == 83) {
+                anglerAnnihilator.net.y_velocity = 0
+            }
+            if(event.keyCode == 39 || event.keyCode == 68) {
+                anglerAnnihilator.net.x_velocity = 0
+            }
+            if(event.keyCode == 37 || event.keyCode == 65) {
+                anglerAnnihilator.net.x_velocity = 0
+            }
+            if (event.keyCode == 27) {
+                history.back();
+        }
+     }
     },
-
+    // Joah
     moveNet: function () {
         this.net.y_pos = this.net.y_pos + this.net.y_velocity
+        this.net.x_pos = this.net.x_pos + this.net.x_velocity
     },
 
    //gameLoop: function() {
