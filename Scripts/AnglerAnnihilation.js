@@ -22,6 +22,7 @@ let anglerAnnihilator = {
         for (let i = 0; i < 3; i++) {
             this.hooks.push(this.createHook());
         }
+        //Joah
         window.onkeyup = function(event) {
             if (event.keyCode == 27) {
                     history.back();
@@ -161,9 +162,11 @@ let anglerAnnihilator = {
         }
     },
     checkIfCaught: function () {
-        
-        var fish1 = {x: 5, y: 5, width: 70, height: 70}
-        var net2 = {x: 20, y: 10, width: 100, height: 100}
+        for(let i = 0; i < this.fishes.length; i++) {
+            for(let i = 0; i < this.net.length; i++) {
+                
+            }
+        }
         
         if (fish1.x < net2.x + net2.width &&
            fish1.x + fish1.width > net2.x &&
@@ -208,6 +211,7 @@ let anglerAnnihilator = {
 
     },
 
+    //Joah
     netMovement: function () {
         window.onkeydown = function (event) {
             if(event.keyCode == 38 || event.keyCode == 87) {
