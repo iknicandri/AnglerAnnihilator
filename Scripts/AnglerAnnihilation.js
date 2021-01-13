@@ -95,7 +95,7 @@ let anglerAnnihilator = {
         netdiv.className = "net"
         this.container.append(netdiv)
         let net = {
-            x_pos: 1250,
+            x_pos: 1150,
             y_pos: 250,
             y_velocity: 0,
             radius: 5,
@@ -161,14 +161,26 @@ let anglerAnnihilator = {
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
+            if(this.fishes[i].x_pos >= 1280) {
+               this.fishes.pop(i);
+                //document.getElementsByClassName('redFish').style.display = 'none';
+                //document.getElementsByClassName('greenFish').style.display = 'none';
+                //document.getElementsByClassName('purpleFish').style.display = 'none';
+                //document.getElementsByClassName('orangeFish').style.display = 'none';
+                
+    
+            }
         }
+        
     },
     //Isabelle
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
 
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
-
+            if(this.hooks[i].x_pos >= 1280) {
+                this.hooks.pop(i);
+            }
 
         }
     },
