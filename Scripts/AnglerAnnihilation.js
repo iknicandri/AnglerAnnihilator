@@ -67,9 +67,9 @@ let anglerAnnihilator = {
         return fish;
     },
     // Joah
-    //fishRespawn: function () {
-       // this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
-  //  },
+    fishRespawn: function () {
+        this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
+    },
 
     //Isabelle
     createGiantNet: function () {
@@ -166,14 +166,14 @@ let anglerAnnihilator = {
     },
 
 
-   // createScore: function () {
-     //   let scorediv = document.createElement('div');
-     //   scorediv.id = "score";
-     //   this.score.append(scorediv)
-     //   if(this.fishes[i].caught == true) {
-     //       score++
-     //   }
-  //  },
+    createScore: function () {
+        let scorediv = document.createElement('div');
+        scorediv.id = "score";
+        this.score.append(scorediv)
+        if(this.fishes[i].caught == true) {
+           score++
+       }
+   },
 
 
 
