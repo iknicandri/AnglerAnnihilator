@@ -6,9 +6,6 @@ let anglerAnnihilator = {
     hooks: [],
     score: {},
 
-
-    //fishTypeImages: [],
-
     //Isabelle
     init: function () {
 
