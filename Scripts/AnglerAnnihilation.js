@@ -9,7 +9,6 @@ let anglerAnnihilator = {
     
     //Isabelle
     init: function () {
-
         for (let i = 0; i < 8; i++) {
             this.fishes.push(this.createFish());
         }
@@ -24,7 +23,6 @@ let anglerAnnihilator = {
 
         this.netMovement();
         this.renderHooks();
-        this.startGame();
     },
     //Joah
     createFish: function () {
@@ -68,7 +66,7 @@ let anglerAnnihilator = {
         }
         return fish;
     },
-
+    // Joah
     fishRespawn: function () {
         this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
     },
