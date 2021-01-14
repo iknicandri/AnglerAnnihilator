@@ -4,25 +4,27 @@ let anglerAnnihilator = {
     fishes: [],
     net: undefined,
     hooks: [],
-    //score: 0,
+    
 
-    //Isabelle
+    
     init: function () {
-
+        //Isabelle
+        this.net = this.createGiantNet();
+        this.startGame();
+        this.createHook();
+        this.renderNet();
+        this.renderHooks();
+        
+        
+        // Joah
+        this.netMovement();
+        this.hookRespawn();
         this.createFish();
         this.fishRespawn();
         this.renderFish();
-        //this.startGame();
-        this.net = this.createGiantNet();
+       
 
-        this.renderNet();
-        this.netMovement();
-        // Joah
-        this.createHook();
-        this.hookRespawn();
-        this.renderHooks();
-
-        this.startGame();
+       
     },
     //Joah
     createFish: function () {
@@ -67,6 +69,7 @@ let anglerAnnihilator = {
         this.fishes.push(fish)
     },
 
+    //Joah
     fishRespawn: function () {
         this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 2000)
     },
@@ -81,7 +84,7 @@ let anglerAnnihilator = {
             y_pos: 250,
             y_velocity: 0,
             x_velocity: 0,
-            radius: 5,
+            radius: 7,
             fishCollected: 0,
             element: netdiv,
             fishCaught: false,
@@ -99,7 +102,7 @@ let anglerAnnihilator = {
             y_pos: Math.random() * 550,
             x_velocity: 3,
             y_velocity: Math.random() * 5,
-            radius: 3,
+            radius: 5,
             element: hookdiv,
             canSwim: true,
         }
@@ -115,14 +118,20 @@ let anglerAnnihilator = {
 
     },
     animateFish: function () {
-        this.renderFish();
+
+        
+        //Isabelle
         this.renderNet();
-        this.renderHooks();
+         this.renderHooks();
         this.swimFish();
         this.swimHook();
-        this.moveNet();
-        this.checkIfCaught();
         this.endGame();
+
+        //Joah
+        this.moveNet();
+        this.renderFish();
+        this.checkIfCaught();
+        
 
     },
     //Joah
@@ -144,10 +153,6 @@ let anglerAnnihilator = {
             this.hooks[i].element.style.top = this.hooks[i].y_pos + "px";
             this.hooks[i].element.style.left = this.hooks[i].x_pos + "px";
         }
-    },
-
-    renderScore: function () {
-
     },
 
 
@@ -176,16 +181,7 @@ let anglerAnnihilator = {
         }
     },
 
-
-   //createScore: function () {
-     //  let scorediv = document.createElement("div")
-    //   scorediv.id = "score"
-     //  this.container.append(scorediv)
-  // },
-
-
-
-    // Joah
+// Joah
     checkIfCaught: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             let dx = (this.net.x_pos + this.net.radius - (this.fishes[i].x_pos + this.fishes[i].radius))
@@ -257,6 +253,7 @@ let anglerAnnihilator = {
         this.net.x_pos = this.net.x_pos + this.net.x_velocity
     },
 
+    //Joah
     createScore: function () {
         //let sb = document.getElementById("score_board_number").value;
         let scoreNumber = [];
@@ -268,10 +265,5 @@ let anglerAnnihilator = {
             
         }
     },
-
-    //gameLoop: function() {
-    //    moveSelection();
-    //    setTimeout("gameLoop()",10)
-    //}
 }
 anglerAnnihilator.init();
