@@ -206,6 +206,9 @@ let anglerAnnihilator = {
               this.hooks[i].x_pos = null
               this.hooks[i].y_pos = null
               this.container.removeChild(this.hooks[i].element)
+              //from developer.mozilla.org
+              alert("GAME OVER");
+              document.location.reload();
           }
         }
     },
