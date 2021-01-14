@@ -5,11 +5,15 @@ let anglerAnnihilator = {
     net: [],
     hooks: [],
     score: {},
+    
+    
     //fishTypeImages: [],
 
     //Isabelle
     init: function () {
+       
 
+        
         for (let i = 0; i < 8; i++) {
             this.fishes.push(this.createFish());
         }
@@ -22,17 +26,7 @@ let anglerAnnihilator = {
         for (let i = 0; i < 3; i++) {
             this.hooks.push(this.createHook());
         }
-        //window.onkeydown = function (event) {
-        //    if (event.keyCode == 38) {
-        //      for (let i = 0; i < this.net.length; i++) {
-        //        this.net[i].style.backgroundColor = 'white';
-        //      }
-        //    } else if (event.keyCode == 40) {
-        //      this.color = 'grey';
-        //    }
-            
-      
-        //  }.bind(anglerAnnihilator)
+        
       
         window.onkeyup = function(event) {
             if (event.keyCode == 27) {
@@ -100,6 +94,7 @@ let anglerAnnihilator = {
             y_velocity: 0,
             radius: 5,
             element: netdiv,
+            
         }
         return net;
         },
@@ -117,12 +112,14 @@ let anglerAnnihilator = {
                 radius: 5,
                 element: hookdiv,
                 canSwim: true,
+                
             }
             return hook;
             },
             //Isabelle
             startGame: function () {
                 this.animation1 = window.setInterval(this.animateFish.bind(anglerAnnihilator), 30);
+               
             },
             animateFish: function () {
                 this.renderFish();
@@ -162,14 +159,14 @@ let anglerAnnihilator = {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
             if(this.fishes[i].x_pos >= 1280) {
-               this.fishes.pop(i);
+              this.fishes.pop(i)
                 //document.getElementsByClassName('redFish').style.display = 'none';
                 //document.getElementsByClassName('greenFish').style.display = 'none';
                 //document.getElementsByClassName('purpleFish').style.display = 'none';
                 //document.getElementsByClassName('orangeFish').style.display = 'none';
                 
     
-            }
+            }  
         }
         
     },
@@ -184,50 +181,38 @@ let anglerAnnihilator = {
 
         }
     },
-    checkIfCaught: function () {
-        
-        var fish1 = {x: 5, y: 5, width: 70, height: 70}
-        var net2 = {x: 20, y: 10, width: 100, height: 100}
-        
-        if (fish1.x < net2.x + net2.width &&
-           fish1.x + fish1.width > net2.x &&
-           fish1.y < net2.y + net2.height &&
-           fish1.y + fish1.height > net2.y) {
-            // collision detected!
-        }
-        
-        // filling in the values =>
-        
-        if (5 < 30 &&
-            55 > 20 &&
-            5 < 20 &&
-            55 > 10) {
-            // collision detected!
-        }
+    checkIfCaught: function() {
+        for (let i = 0; i < this.fishes.length; i++){
+           let fish = this.fishes[i];
+            for (let n = 0; n < this.net.length; n++){
+                let net = this.net[n];
+            
+            if(fish.caught== false) {
+                for (let j =0; j < this.fishes.length; j++) {
+                    let fx = fish.x_pos - this.fishes[j].x_pos;
+                    let fy = fish.y_pos - this.fishes[j].y_pos;
+                    let nx = net.x_pos - this.net[n].x_pos;
+                    let ny = net.y_pos - this.net[n].y_pos;
+                    let distance = Math.sqrt(fx * nx * fy * ny);
 
-
-        //for(let i = 0; i < this.net.length; i++) {
-        //    let aNet = this.net[i];
-        //    if(aNet.caught == false){
-        //       for (let j = 0; j < this.fishes.length; j++) {
-        //            let dx = aNet.x_pos - this.fishes[j].x_pos;
-        //            let dy = aNet.y_pos - this.fishes[j].y_pos;
-        //            let distance = Math.sqrt(dx * dx * dy * dy);
-        //
-        //            if (distance < aNet.radius + this.fishes[j].radius) {
-        //                console.log("fish have been caught")
-        //                if(this.fishes[j].caught == false) {
-        //                    this.fishes[j].caught = true;
-        //                }
-        //            }
-        //        }
-        //    }
-        // }
+                    if (distance < fish.radius + net.radius) {
+                       console.log("collision detected")
+                        //this.fishes[i].caught = true;
+                        }
+                    }
+                }
+            }
+        }
+    },
+    
+    createScore: function() {
+        let scorediv = document.createElement('div');
+        scorediv.id = "score";
+        this.container.append(scorediv)
     },
 
-    startButton: function () {
 
-    },
+    
     endGame: function () {
 
     },
