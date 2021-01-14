@@ -23,6 +23,7 @@ let anglerAnnihilator = {
 
         this.netMovement();
         this.renderHooks();
+        
     },
     //Joah
     createFish: function () {
