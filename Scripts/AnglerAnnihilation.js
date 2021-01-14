@@ -87,6 +87,7 @@ let anglerAnnihilator = {
             x_velocity: 0,
             radius: 10,
             element: netdiv,
+            fishCaught: false,
 
         }
         return net;
@@ -151,7 +152,7 @@ let anglerAnnihilator = {
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
-            if (this.fishes[i].x_pos >= 1280) {
+            if (this.fishes[i].x_pos >= 1200) {
                 this.fishes.pop(i);
 
 
@@ -164,7 +165,7 @@ let anglerAnnihilator = {
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
-            if (this.hooks[i].x_pos >= 1280) {
+            if (this.hooks[i].x_pos >= 1200) {
                 this.hooks.pop(i);
                 //this.container.removeChild(this.hooks[i].element)
             }
@@ -173,11 +174,7 @@ let anglerAnnihilator = {
     },
 
 
-    createScore: function () {
-        let scorediv = document.createElement('div');
-        scorediv.id = "score";
-        this.container.append(scorediv)
-    },
+    
 
 
 
@@ -191,6 +188,7 @@ let anglerAnnihilator = {
                 this.fishes[i].x_pos = null
                 this.fishes[i].y_pos = null
                 this.container.removeChild(this.fishes[i].element)
+                this.net.fishCaught = true
             }
         }
     },
@@ -205,7 +203,7 @@ let anglerAnnihilator = {
                 this.hooks[i].y_pos = null
                 this.container.removeChild(this.hooks[i].element)
                 //from developer.mozilla.org
-                alert("GAME OVER");
+                alert("GAME OVER, you caught a fish hook! Press OK to play again.");
                 document.location.reload();
             }
         }
@@ -249,6 +247,18 @@ let anglerAnnihilator = {
     moveNet: function () {
         this.net.y_pos = this.net.y_pos + this.net.y_velocity
         this.net.x_pos = this.net.x_pos + this.net.x_velocity
+    },
+
+    createScore: function () {
+        //let sb = document.getElementById("score_board_number").value;
+        let scoreNumber = [];
+        for (let i = 0; i <= 100; i++) {
+            if(i = 1 && this.net.fishCaught ==true) {
+                scoreNumber.push(i);
+        }
+        
+            
+        }
     },
 
     //gameLoop: function() {
