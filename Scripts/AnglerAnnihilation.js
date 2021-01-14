@@ -8,7 +8,9 @@ let anglerAnnihilator = {
 
     //Isabelle
     init: function () {
+       
 
+        
         for (let i = 0; i < 8; i++) {
             this.fishes.push(this.createFish());
         }
@@ -34,7 +36,7 @@ let anglerAnnihilator = {
         type: Math.round(Math.random() * 8),
         x_pos: Math.random() * 100,
         y_pos: Math.random() * 500,
-        x_velocity:  2,
+        x_velocity:  3,
         y_velocity: .5,
         radius: 5,
         element: fishdiv,
@@ -78,12 +80,13 @@ let anglerAnnihilator = {
         netdiv.className = "net"
         this.container.append(netdiv)
         let net = {
-            x_pos: 1150,
+            x_pos: 1135,
             y_pos: 250,
             y_velocity: 0,
             x_velocity: 0,
             radius: 5,
             element: netdiv,
+            
         }
         return net;
         },
@@ -101,12 +104,14 @@ let anglerAnnihilator = {
                 radius: 5,
                 element: hookdiv,
                 canSwim: true,
+                
             }
             return hook;
             },
             //Isabelle
             startGame: function () {
                 this.animation1 = window.setInterval(this.animateFish.bind(anglerAnnihilator), 30);
+               
             },
             animateFish: function () {
                 this.renderFish();
@@ -116,6 +121,7 @@ let anglerAnnihilator = {
                 this.swimHook();
                 this.moveNet();
                 this.checkIfCaught();
+                this.endGame();
 
             },
         //Joah
@@ -145,14 +151,11 @@ let anglerAnnihilator = {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
             if(this.fishes[i].x_pos >= 1280) {
-               this.fishes.pop(i);
-                //document.getElementsByClassName('redFish').style.display = 'none';
-                //document.getElementsByClassName('greenFish').style.display = 'none';
-                //document.getElementsByClassName('purpleFish').style.display = 'none';
-                //document.getElementsByClassName('orangeFish').style.display = 'none';
+              this.fishes.pop(i);  
+                
                 
     
-            }
+            }  
         }
         
     },
@@ -162,10 +165,21 @@ let anglerAnnihilator = {
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
             if(this.hooks[i].x_pos >= 1280) {
                 this.hooks.pop(i);
+                //this.container.removeChild(this.hooks[i].element)
             }
 
         }
     },
+    
+    
+    createScore: function() {
+        let scorediv = document.createElement('div');
+        scorediv.id = "score";
+        this.container.append(scorediv)
+    },
+
+
+    
     // Joah
     checkIfCaught: function () {
       for (let i = 0; i < this.fishes.length; i++) {
@@ -179,9 +193,21 @@ let anglerAnnihilator = {
         }
       }
     },
-
+    //Isabelle
     endGame: function () {
-
+        for (let i = 0; i < this.hooks.length; i++) {
+            let nx = (this.net.x_pos + this.net.radius - (this.hooks[i].x_pos + this.hooks[i].radius))
+            let ny = (this.net.y_pos + this.net.radius - (this.hooks[i].y_pos + this.hooks[i].radius))
+            let distance = Math.sqrt(nx * nx * ny * ny)
+          if(distance <= this.net.radius + this.hooks[i].radius && this.hooks[i].x_pos != null) {
+              this.hooks[i].x_pos = null
+              this.hooks[i].y_pos = null
+              this.container.removeChild(this.hooks[i].element)
+              //from developer.mozilla.org
+              alert("GAME OVER");
+              document.location.reload();
+          }
+        }
     },
 
     //Joah
