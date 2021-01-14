@@ -112,11 +112,13 @@ body {
 }
 .start{
     display: block;
-    padding-top: 50%;
+    padding-top: 3%;
     margin: 0 auto;
     text-align: center;
-    width: 50%;
+    width: 80%;
     cursor: pointer;
+    top: 400px;
+    left: 400px;
 }
 
 .start .high_scores{
