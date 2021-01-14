@@ -124,6 +124,7 @@ let anglerAnnihilator = {
                 this.swimHook();
                 this.moveNet();
                 this.checkIfCaught();
+                this.endGame();
 
             },
         //Joah
@@ -153,11 +154,8 @@ let anglerAnnihilator = {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
             if(this.fishes[i].x_pos >= 1280) {
-              this.fishes.pop(i)
-                //document.getElementsByClassName('redFish').style.display = 'none';
-                //document.getElementsByClassName('greenFish').style.display = 'none';
-                //document.getElementsByClassName('purpleFish').style.display = 'none';
-                //document.getElementsByClassName('orangeFish').style.display = 'none';
+              this.fishes.pop(i);  
+                
                 
     
             }  
@@ -170,33 +168,12 @@ let anglerAnnihilator = {
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
             if(this.hooks[i].x_pos >= 1280) {
                 this.hooks.pop(i);
+                //this.container.removeChild(this.hooks[i].element)
             }
 
         }
     },
-    //checkIfCaught: function() {
-    //    for (let i = 0; i < this.fishes.length; i++){
-    //       let fish = this.fishes[i];
-    //        for (let n = 0; n < this.net.length; n++){
-    //            let net = this.net[n];
-            
-    //        if(fish.caught== false) {
-    //            for (let j =0; j < this.fishes.length; j++) {
-    //                let fx = fish.x_pos - this.fishes[j].x_pos;
-    //                let fy = fish.y_pos - this.fishes[j].y_pos;
-    //                let nx = net.x_pos - this.net[n].x_pos;
-    //                let ny = net.y_pos - this.net[n].y_pos;
-    //                let distance = Math.sqrt(fx * nx * fy * ny);
-
-    //                if (distance < fish.radius + net.radius) {
-    //                   console.log("collision detected")
-    //                    //this.fishes[i].caught = true;
-    //                    }
-    //                }
-    //            }
-    //        }
-     //   }
-    //},
+    
     
     createScore: function() {
         let scorediv = document.createElement('div');
@@ -219,9 +196,18 @@ let anglerAnnihilator = {
         }
       }
     },
-
+    //Isabelle
     endGame: function () {
-
+        for (let i = 0; i < this.hooks.length; i++) {
+            let nx = (this.net.x_pos + this.net.radius - (this.hooks[i].x_pos + this.hooks[i].radius))
+            let ny = (this.net.y_pos + this.net.radius - (this.hooks[i].y_pos + this.hooks[i].radius))
+            let distance = Math.sqrt(nx * nx * ny * ny)
+          if(distance <= this.net.radius + this.hooks[i].radius && this.hooks[i].x_pos != null) {
+              this.hooks[i].x_pos = null
+              this.hooks[i].y_pos = null
+              this.container.removeChild(this.hooks[i].element)
+          }
+        }
     },
 
     //Joah
