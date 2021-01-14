@@ -4,8 +4,9 @@ let anglerAnnihilator = {
     fishes: [],
     net: undefined,
     hooks: [],
-    score: {},
+    score: document.getElementsByClassName("score"),
 
+    
     //Isabelle
     init: function () {
 
@@ -173,7 +174,10 @@ let anglerAnnihilator = {
     createScore: function () {
         let scorediv = document.createElement('div');
         scorediv.id = "score";
-        this.container.append(scorediv)
+        this.score.append(scorediv)
+        if(this.fishes[i].caught == true) {
+            score++
+        }
     },
 
 
@@ -188,6 +192,7 @@ let anglerAnnihilator = {
                 this.fishes[i].x_pos = null
                 this.fishes[i].y_pos = null
                 this.container.removeChild(this.fishes[i].element)
+                
             }
         }
     },
@@ -202,7 +207,7 @@ let anglerAnnihilator = {
                 this.hooks[i].y_pos = null
                 this.container.removeChild(this.hooks[i].element)
                 //from developer.mozilla.org
-                alert("GAME OVER");
+                alert("GAME OVER, you caught a fish hook! Press OK to play again!");
                 document.location.reload();
             }
         }
@@ -241,6 +246,7 @@ let anglerAnnihilator = {
                 history.back();
             }
         }
+
     },
     // Joah
     moveNet: function () {
