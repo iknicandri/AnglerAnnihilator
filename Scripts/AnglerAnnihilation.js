@@ -17,12 +17,10 @@ let anglerAnnihilator = {
 
         this.renderNet();
         this.netMovement();
-
+        // Joah
         this.createHook();
         this.hookRespawn();
         this.renderHooks();
-       
-        //this.createScore();
 
         this.startGame();
     },
@@ -103,10 +101,10 @@ let anglerAnnihilator = {
             radius: 3,
             element: hookdiv,
             canSwim: true,
-
         }
         this.hooks.push(hook)
     },
+    //Joah
     hookRespawn: function () {
         this.interval = window.setInterval(this.createHook.bind(anglerAnnihilator), 4500)
     },
@@ -152,7 +150,7 @@ let anglerAnnihilator = {
     },
 
 
-    //Isabelle
+    //Joah
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
