@@ -4,11 +4,14 @@ let anglerAnnihilator = {
     fishes: [],
     net: undefined,
     hooks: [],
-    score: document.getElementsByClassName("score"),
+    score: {},
 
-    
+
+    //fishTypeImages: [],
+
     //Isabelle
     init: function () {
+
         for (let i = 0; i < 8; i++) {
             this.fishes.push(this.createFish());
         }
@@ -23,6 +26,7 @@ let anglerAnnihilator = {
 
         this.netMovement();
         this.renderHooks();
+        this.startGame();
     },
     //Joah
     createFish: function () {
@@ -66,7 +70,7 @@ let anglerAnnihilator = {
         }
         return fish;
     },
-    // Joah
+
     fishRespawn: function () {
         this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
     },
@@ -77,7 +81,7 @@ let anglerAnnihilator = {
         netdiv.className = "net"
         this.container.append(netdiv)
         let net = {
-            x_pos: 615,
+            x_pos: 1135,
             y_pos: 250,
             y_velocity: 0,
             x_velocity: 0,
@@ -147,8 +151,11 @@ let anglerAnnihilator = {
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
-            if (this.fishes[i].x_pos >= 720) {
+            if (this.fishes[i].x_pos >= 1280) {
                 this.fishes.pop(i);
+
+
+
             }
         }
 
@@ -157,7 +164,7 @@ let anglerAnnihilator = {
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
-            if (this.hooks[i].x_pos >= 720) {
+            if (this.hooks[i].x_pos >= 1280) {
                 this.hooks.pop(i);
                 //this.container.removeChild(this.hooks[i].element)
             }
@@ -169,11 +176,8 @@ let anglerAnnihilator = {
     createScore: function () {
         let scorediv = document.createElement('div');
         scorediv.id = "score";
-        this.score.append(scorediv)
-        if(this.fishes[i].caught == true) {
-           score++
-       }
-   },
+        this.container.append(scorediv)
+    },
 
 
 
@@ -187,7 +191,6 @@ let anglerAnnihilator = {
                 this.fishes[i].x_pos = null
                 this.fishes[i].y_pos = null
                 this.container.removeChild(this.fishes[i].element)
-                
             }
         }
     },
@@ -202,7 +205,7 @@ let anglerAnnihilator = {
                 this.hooks[i].y_pos = null
                 this.container.removeChild(this.hooks[i].element)
                 //from developer.mozilla.org
-                alert("GAME OVER, you caught a fish hook! Press OK to play again!");
+                alert("GAME OVER");
                 document.location.reload();
             }
         }
@@ -241,7 +244,6 @@ let anglerAnnihilator = {
                 history.back();
             }
         }
-
     },
     // Joah
     moveNet: function () {
