@@ -2,7 +2,7 @@ let anglerAnnihilator = {
     container: document.getElementById("animation_container"),
     animation1: undefined,
     fishes: [],
-    net: [],
+    net: undefined,
     hooks: [],
     score: {},
     
@@ -19,26 +19,16 @@ let anglerAnnihilator = {
         }
         this.renderFish();
         //this.startGame();
-        for (let i = 0; i < 1; i++) {
-            this.net.push(this.createGiantNet());
-        }
+        this.net = this.createGiantNet();
+
         this.renderNet();
         for (let i = 0; i < 3; i++) {
             this.hooks.push(this.createHook());
         }
-        
-      
-        window.onkeyup = function(event) {
-            if (event.keyCode == 27) {
-                    history.back();
-            }
-        }
-
+       
         this.netMovement();
         this.renderHooks();
         this.startGame();
-
-        
     },
     //Joah
     createFish: function () {
@@ -49,7 +39,7 @@ let anglerAnnihilator = {
         type: Math.round(Math.random() * 8),
         x_pos: Math.random() * 100,
         y_pos: Math.random() * 500,
-        x_velocity:  3,
+        x_velocity:  2,
         y_velocity: .5,
         radius: 5,
         element: fishdiv,
@@ -83,6 +73,10 @@ let anglerAnnihilator = {
         return fish;
     },
 
+    fishRespawn: function () {
+        this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
+    },
+
     //Isabelle
     createGiantNet: function () {
         let netdiv = document.createElement("div")
@@ -92,6 +86,7 @@ let anglerAnnihilator = {
             x_pos: 1150,
             y_pos: 250,
             y_velocity: 0,
+            x_velocity: 0,
             radius: 5,
             element: netdiv,
             
@@ -140,10 +135,9 @@ let anglerAnnihilator = {
         },
         //Isabelle
         renderNet: function () {
-            for (let i = 0; i < 1; i++) {
-                this.net[i].element.style.top = this.net[i].y_pos + "px";
-                this.net[i].element.style.left = this.net[i].x_pos + "px";
-            }
+            this.net.element.style.top = this.net.y_pos + "px";
+            this.net.element.style.left = this.net.x_pos + "px";
+            
         },
         //Isabelle
         renderHooks: function () {
@@ -173,7 +167,6 @@ let anglerAnnihilator = {
     //Isabelle
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
-
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
             if(this.hooks[i].x_pos >= 1280) {
                 this.hooks.pop(i);
@@ -181,29 +174,29 @@ let anglerAnnihilator = {
 
         }
     },
-    checkIfCaught: function() {
-        for (let i = 0; i < this.fishes.length; i++){
-           let fish = this.fishes[i];
-            for (let n = 0; n < this.net.length; n++){
-                let net = this.net[n];
+    //checkIfCaught: function() {
+    //    for (let i = 0; i < this.fishes.length; i++){
+    //       let fish = this.fishes[i];
+    //        for (let n = 0; n < this.net.length; n++){
+    //            let net = this.net[n];
             
-            if(fish.caught== false) {
-                for (let j =0; j < this.fishes.length; j++) {
-                    let fx = fish.x_pos - this.fishes[j].x_pos;
-                    let fy = fish.y_pos - this.fishes[j].y_pos;
-                    let nx = net.x_pos - this.net[n].x_pos;
-                    let ny = net.y_pos - this.net[n].y_pos;
-                    let distance = Math.sqrt(fx * nx * fy * ny);
+    //        if(fish.caught== false) {
+    //            for (let j =0; j < this.fishes.length; j++) {
+    //                let fx = fish.x_pos - this.fishes[j].x_pos;
+    //                let fy = fish.y_pos - this.fishes[j].y_pos;
+    //                let nx = net.x_pos - this.net[n].x_pos;
+    //                let ny = net.y_pos - this.net[n].y_pos;
+    //                let distance = Math.sqrt(fx * nx * fy * ny);
 
-                    if (distance < fish.radius + net.radius) {
-                       console.log("collision detected")
-                        //this.fishes[i].caught = true;
-                        }
-                    }
-                }
-            }
-        }
-    },
+    //                if (distance < fish.radius + net.radius) {
+    //                   console.log("collision detected")
+    //                    //this.fishes[i].caught = true;
+    //                    }
+    //                }
+    //            }
+    //        }
+     //   }
+    //},
     
     createScore: function() {
         let scorediv = document.createElement('div');
@@ -213,46 +206,67 @@ let anglerAnnihilator = {
 
 
     
+    // Joah
+    checkIfCaught: function () {
+      for (let i = 0; i < this.fishes.length; i++) {
+          let dx = (this.net.x_pos + this.net.radius - (this.fishes[i].x_pos + this.fishes[i].radius))
+          let dy = (this.net.y_pos + this.net.radius - (this.fishes[i].y_pos + this.fishes[i].radius))
+          let distance = Math.sqrt(dx * dx * dy * dy)
+        if(distance <= this.net.radius + this.fishes[i].radius && this.fishes[i].x_pos != null) {
+            this.fishes[i].x_pos = null
+            this.fishes[i].y_pos = null
+            this.container.removeChild(this.fishes[i].element)
+        }
+      }
+    },
+
     endGame: function () {
 
     },
 
+    //Joah
     netMovement: function () {
         window.onkeydown = function (event) {
             if(event.keyCode == 38 || event.keyCode == 87) {
+                anglerAnnihilator.net.y_velocity = -4
+            }
+            if(event.keyCode == 40 || event.keyCode == 83) {
                 anglerAnnihilator.net.y_velocity = 4
             }
+            if(event.keyCode == 39 || event.keyCode == 68) {
+                anglerAnnihilator.net.x_velocity = 4
+            }
+            if(event.keyCode == 37 || event.keyCode == 65) {
+                anglerAnnihilator.net.x_velocity = -4
+            }
         }
+        window.onkeyup = function(event) {
+            if(event.keyCode == 38 || event.keyCode == 87) {
+                anglerAnnihilator.net.y_velocity = 0
+            }
+            if(event.keyCode == 40 || event.keyCode == 83) {
+                anglerAnnihilator.net.y_velocity = 0
+            }
+            if(event.keyCode == 39 || event.keyCode == 68) {
+                anglerAnnihilator.net.x_velocity = 0
+            }
+            if(event.keyCode == 37 || event.keyCode == 65) {
+                anglerAnnihilator.net.x_velocity = 0
+            }
+            if (event.keyCode == 27) {
+                history.back();
+        }
+     }
+    },
+    // Joah
+    moveNet: function () {
+        this.net.y_pos = this.net.y_pos + this.net.y_velocity
+        this.net.x_pos = this.net.x_pos + this.net.x_velocity
     },
 
-   // upArrowPressed: function() {
-    //var element = document.getElementsByClassName("net");
-   // element.style.top = parseInt(element.style.top) - 5 + 'px';
-    //},
-    
-   // downArrowPressed: function () {
-    //    var element = document.getElementsByClassName("net");
-    //    element.style.top = parseInt(element.style.top) + 5 + 'px';
-    //},
-
-    //moveSelection: function(event) {
-        //evt = evt || window.event;
-    //    switch (event.keyCode) {
-    //        case 38:
-    //            this.upArrowPressed();
-    //            break;
-    //        case 40:
-    //            this.downArrowPressed();
-    //            break;
-    //    }
-    //},
    //gameLoop: function() {
     //    moveSelection();
     //    setTimeout("gameLoop()",10)
     //}
-
-    moveNet: function () {
-        this.net.y_pos = this.net.y_pos + this.net.y_velocity
-    }
 }
 anglerAnnihilator.init();
