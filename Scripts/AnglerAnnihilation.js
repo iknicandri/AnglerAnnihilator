@@ -35,7 +35,7 @@ let anglerAnnihilator = {
             y_pos: Math.random() * 500,
             x_velocity: 3,
             y_velocity: .5,
-            radius: 5,
+            radius: 10,
             element: fishdiv,
             canSwim: true,
             caught: false,
@@ -67,9 +67,9 @@ let anglerAnnihilator = {
         return fish;
     },
     // Joah
-    fishRespawn: function () {
-        this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
-    },
+    //fishRespawn: function () {
+       // this.interval = window.setInterval(this.createFish.bind(anglerAnnihilator), 800)
+  //  },
 
     //Isabelle
     createGiantNet: function () {
@@ -81,7 +81,7 @@ let anglerAnnihilator = {
             y_pos: 250,
             y_velocity: 0,
             x_velocity: 0,
-            radius: 5,
+            radius: 10,
             element: netdiv,
 
         }
@@ -149,9 +149,6 @@ let anglerAnnihilator = {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
             if (this.fishes[i].x_pos >= 720) {
                 this.fishes.pop(i);
-
-
-
             }
         }
 
@@ -169,14 +166,14 @@ let anglerAnnihilator = {
     },
 
 
-    createScore: function () {
-        let scorediv = document.createElement('div');
-        scorediv.id = "score";
-        this.score.append(scorediv)
-        if(this.fishes[i].caught == true) {
-            score++
-        }
-    },
+   // createScore: function () {
+     //   let scorediv = document.createElement('div');
+     //   scorediv.id = "score";
+     //   this.score.append(scorediv)
+     //   if(this.fishes[i].caught == true) {
+     //       score++
+     //   }
+  //  },
 
 
 
