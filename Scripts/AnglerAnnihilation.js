@@ -79,7 +79,7 @@ let anglerAnnihilator = {
         netdiv.className = "net"
         this.container.append(netdiv)
         let net = {
-            x_pos: 1135,
+            x_pos: 615,
             y_pos: 250,
             y_velocity: 0,
             x_velocity: 0,
@@ -149,7 +149,7 @@ let anglerAnnihilator = {
     swimFish: function () {
         for (let i = 0; i < this.fishes.length; i++) {
             this.fishes[i].x_pos = this.fishes[i].x_pos + this.fishes[i].x_velocity;
-            if (this.fishes[i].x_pos >= 1280) {
+            if (this.fishes[i].x_pos >= 720) {
                 this.fishes.pop(i);
 
 
@@ -162,7 +162,7 @@ let anglerAnnihilator = {
     swimHook: function () {
         for (let i = 0; i < this.hooks.length; i++) {
             this.hooks[i].x_pos = this.hooks[i].x_pos + this.hooks[i].x_velocity;
-            if (this.hooks[i].x_pos >= 1280) {
+            if (this.hooks[i].x_pos >= 720) {
                 this.hooks.pop(i);
                 //this.container.removeChild(this.hooks[i].element)
             }

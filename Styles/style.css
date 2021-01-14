@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1350px;
+    width: 800px;
     height: 600px;
     border: 1px solid #eee;
     border-radius: 10px;
@@ -20,7 +20,7 @@ body {
 }
 
 #animation_container {
-    width: 1345px;
+    width: 795px;
     height: 595px;
     border: 1px solid #eee;
     border-radius: 10px;
@@ -101,8 +101,8 @@ body {
 .score{
     display: block;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 50px;
+    left: 50px;
 }
 .time{
     display: block;
