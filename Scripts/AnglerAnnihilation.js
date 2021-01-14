@@ -83,7 +83,7 @@ let anglerAnnihilator = {
         netdiv.className = "net"
         this.container.append(netdiv)
         let net = {
-            x_pos: 1150,
+            x_pos: 1135,
             y_pos: 250,
             y_velocity: 0,
             x_velocity: 0,
