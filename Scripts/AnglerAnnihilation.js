@@ -206,7 +206,7 @@ let anglerAnnihilator = {
                 this.hooks[i].x_velocity = null
                 this.hooks[i].y_pos = null
                 this.container.removeChild(this.hooks[i].element)
-                //from developer.mozilla.org
+                //Modified developer.mozilla.org code
                 alert("GAME OVER, you caught a fish hook! Press OK to play again.");
                 document.location.reload();
             }

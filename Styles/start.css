@@ -1,8 +1,37 @@
 .startbtn {
+    display: block;
     position: absolute;
-    top: 300px;
-    left: 900px;
+    top: 360px;
+    left: 791px;
     width: 200px;
     height: 50px;
     font-size:70px;
+}
+#start_animation {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    width: 1000px;
+    height: 483px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-image: url("../Images/startPage.png");
+    margin: auto;
+}
+#start_animation_container {
+    width: 1000px;
+    height: 483px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
+}
+.anglerTitle {
+    display: block;
+    position: absolute;
+    top: 250px;
+    left: 475px;
+    width: 1000px;
+    height: 60px;
+    font-size:50px;
 }
